@@ -100,7 +100,7 @@ by hand.
 
 `rake test` runs two scripts:
 
-- `test/logic_test.rb` — 59 checks with no widgets: layout parsing, board
+- `test/logic_test.rb` — 62 checks with no widgets: layout parsing, board
   generation and reproducibility, matching, undo/redo, hints, the save-file
   round trip, the score file, and the translations (that all 93 catalogues
   compile, that a German run really does say "Pausiert", and that `--version`

@@ -164,6 +164,7 @@
             cp data/org.gnome.Mahjongg.Rb.desktop $out/share/applications/
 
             install -Dm644 data/org.gnome.Mahjongg.Rb.metainfo.xml -t $out/share/metainfo
+            install -Dm644 data/gnome-mahjongg-rb.6 -t $out/share/man/man6
             install -Dm644 data/icons/hicolor/scalable/apps/org.gnome.Mahjongg.Rb.svg \
               -t $out/share/icons/hicolor/scalable/apps
             install -Dm644 data/icons/hicolor/symbolic/apps/org.gnome.Mahjongg.Rb-symbolic.svg \

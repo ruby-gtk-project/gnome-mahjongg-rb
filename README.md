@@ -66,6 +66,7 @@ dialog, winning a game — and writes screenshots to `tmp/shots` as it goes.
 | `lib/mahjongg/score_dialog.rb` | The scores column view |
 | `data/` | Layouts, tile sets, CSS, GSettings schema, icons |
 | `po/` | Upstream's 93 message catalogues, reused unchanged |
+| `data/gnome-mahjongg-rb.6` | The man page |
 
 [PORTING.md](PORTING.md) covers how the Vala maps onto this, and
 [FINDINGS.md](FINDINGS.md) records the ruby-gnome defects found on the way.

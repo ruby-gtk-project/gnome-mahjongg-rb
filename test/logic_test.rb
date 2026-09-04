@@ -213,6 +213,24 @@ check('an untranslated context is not confused with a translated one') do
   Mahjongg::Menu.p_('background color', 'Light') == 'Hell'
 end
 
+puts '== metadata'
+check('the desktop entry is translated') do
+  File.read(File.expand_path('../data/org.gnome.Mahjongg.Rb.desktop', __dir__))
+      .include?('Comment[de]=')
+end
+check('the AppStream metainfo is translated') do
+  File.read(File.expand_path('../data/org.gnome.Mahjongg.Rb.metainfo.xml', __dir__))
+      .include?('xml:lang="de"')
+end
+check('every translatable desktop key is a msgid the catalogues carry') do
+  # A Comment the catalogues have never heard of would ship untranslated in
+  # all 93 languages without anything failing.
+  catalogue = File.read(File.expand_path('../po/de.po', __dir__))
+  File.readlines(File.expand_path('../data/org.gnome.Mahjongg.Rb.desktop.in', __dir__))
+      .filter_map { |line| line[/\A(?:Name|Comment|Keywords)=(.+)\n/, 1] }
+      .all? { |value| catalogue.include?(%(msgid "#{value}")) }
+end
+
 puts '== command line'
 check('--version prints the release and exits 0') do
   IO.popen(

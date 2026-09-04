@@ -1,12 +1,13 @@
 [Desktop Entry]
 Name=Mahjongg
-GenericName=Mahjongg
-Comment=Disassemble a pile of tiles by removing matching pairs
+Comment=Match tiles and clear the board
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=game;strategy;puzzle;board;
 Exec=gnome-mahjongg-rb
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Mahjongg.Rb
 Terminal=false
 Type=Application
+Categories=GNOME;GTK;Game;BoardGame;LogicGame;
 StartupNotify=true
-Categories=GNOME;GTK;Game;LogicGame;
 DBusActivatable=true
