@@ -1,0 +1,595 @@
+# gnome-games Catalan translation.
+# Copyright © 2002-2008 Free Software Foundation, Inc.
+# Jordi Vila <gnome@softcatala.net>, 2002.
+# Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2005.
+# Jordi Mas i Hernàndez <jmas@softcatala.org> 2003, 2017
+# Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
+# Jesús Corrius <jesus@softcatala.org>, 2005.
+# Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
+# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2013, 2014.
+# Carles Ferrando <carles.ferrando@gmail.com>, 2010.
+# Jordi Serratosa <jordis@softcatala.cat>, 2012.
+# Jordi Mas i Hernàndez, <jmas@softcatala.org>, 2019
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-mahjongg/issues/\n"
+"POT-Creation-Date: 2026-03-18 18:43+0000\n"
+"PO-Revision-Date: 2026-03-18 20:16+0100\n"
+"Last-Translator: maite guix <maite.guix@me.com>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.6\n"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:2
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:9 src/gnome-mahjongg.vala:438
+msgid "Mahjongg"
+msgstr "Mahjongg"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:3
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:10
+msgid "Match tiles and clear the board"
+msgstr "Emparelleu fitxes i netegeu el tauler"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Mahjongg.desktop.in.in:5
+msgid "game;strategy;puzzle;board;"
+msgstr "joc;estratègia;puzle;tauler;"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:31
+msgid "Width of the window in pixels"
+msgstr "L'amplada, en píxels, de la finestra"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:35
+msgid "Height of the window in pixels"
+msgstr "L'alçada, en píxels, de la finestra"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:39
+msgid "true if the window is maximized"
+msgstr "«true» (cert) si la finestra està maximitzada"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:12
+msgid ""
+"Single-player tile-matching game, commonly known as Mahjong solitaire. Tiles "
+"are stacked on the board at the start of the game. The goal is to remove all "
+"the tiles in as little time as possible. Select two matching tiles and they "
+"will disappear from the board, but you can only select a tile if there is an "
+"empty space to its left or right at the same level. Be careful: tiles that "
+"look alike may actually be slightly different."
+msgstr ""
+"Una versió d'un sol jugador del clàssic joc oriental de fitxes, conegut "
+"comunament com a Mahjong solitari. Les fitxes estan apilades al tauler a "
+"l'inici del joc. L'objectiu és eliminar totes les fitxes en el menor temps "
+"possible. Seleccioneu dues fitxes que siguin iguals i desapareixeran del "
+"tauler, però només podeu seleccionar una fitxa si té un espai buit a la seva "
+"dreta o esquerra al mateix nivell. Aneu amb compte: algunes fitxes sembla "
+"que siguin iguals, però poden ser lleugerament diferents."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:21
+msgid ""
+"You can choose from a variety of starting layouts, some easy and some "
+"difficult. If you get stuck, you can ask for a hint, but this adds a large "
+"time penalty."
+msgstr ""
+"Podeu triar d'entre una varietat de disposicions inicials, algunes de fàcils "
+"i d'altres de difícils. Si no podeu avançar, podeu demanar una pista, però "
+"us afegeix una sanció de temps."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:34
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:42
+msgid "Mahjongg in Light Style"
+msgstr "El Mahjongg en tema clar"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:38
+msgid "Mahjongg in Dark Style"
+msgstr "El Mahjongg en tema fosc"
+
+#: data/ui/menu.ui:8 data/ui/score-dialog.ui:104 src/gnome-mahjongg.vala:180
+msgid "_New Game"
+msgstr "Partida _nova"
+
+#: data/ui/menu.ui:12 data/ui/pause-overlay.ui:49
+msgid "_Restart Game"
+msgstr "_Reinicia la partida"
+
+#: data/ui/menu.ui:16
+msgid "_Scores"
+msgstr "_Puntuacions"
+
+#: data/ui/menu.ui:22
+msgid "_Layout"
+msgstr "_Disposició"
+
+#: data/ui/menu.ui:25
+msgctxt "mahjongg map name"
+msgid "Turtle"
+msgstr "Tortuga"
+
+#: data/ui/menu.ui:28
+msgctxt "mahjongg map name"
+msgid "The Ziggurat"
+msgstr "El Ziggurat"
+
+#: data/ui/menu.ui:31
+msgctxt "mahjongg map name"
+msgid "Four Bridges"
+msgstr "Quatre ponts"
+
+#: data/ui/menu.ui:34
+msgctxt "mahjongg map name"
+msgid "Cloud"
+msgstr "Núvol"
+
+#: data/ui/menu.ui:37
+msgctxt "mahjongg map name"
+msgid "Tic-Tac-Toe"
+msgstr "Tres en ratlla"
+
+#: data/ui/menu.ui:40
+msgctxt "mahjongg map name"
+msgid "Red Dragon"
+msgstr "Drac vermell"
+
+#: data/ui/menu.ui:43
+msgctxt "mahjongg map name"
+msgid "Overpass"
+msgstr "Pas de desnivell"
+
+#: data/ui/menu.ui:46
+msgctxt "mahjongg map name"
+msgid "Pyramid's Walls"
+msgstr "Parets d'una piràmide"
+
+#: data/ui/menu.ui:49
+msgctxt "mahjongg map name"
+msgid "Confounding Cross"
+msgstr "La creu dubitativa"
+
+#: data/ui/menu.ui:52
+msgctxt "mahjongg map name"
+msgid "Taipei"
+msgstr "Taipei"
+
+#: data/ui/menu.ui:57
+msgid "Layout _Progression"
+msgstr "_Progressió de la disposició"
+
+#: data/ui/menu.ui:60
+msgctxt "layout progression"
+msgid "No Progression"
+msgstr "Sense progressió"
+
+#: data/ui/menu.ui:65
+msgctxt "layout progression"
+msgid "Sequential"
+msgstr "Seqüencial"
+
+#: data/ui/menu.ui:70
+msgctxt "layout progression"
+msgid "Random"
+msgstr "Aleatori"
+
+#: data/ui/menu.ui:77
+msgid "_Appearance"
+msgstr "_Aparença"
+
+#: data/ui/menu.ui:79
+msgid "Background"
+msgstr "Fons"
+
+#: data/ui/menu.ui:81
+msgctxt "background color"
+msgid "Follow System"
+msgstr "Segueix el sistema"
+
+#: data/ui/menu.ui:86
+msgctxt "background color"
+msgid "Light"
+msgstr "Clar"
+
+#: data/ui/menu.ui:91
+msgctxt "background color"
+msgid "Dark"
+msgstr "Fosc"
+
+#: data/ui/menu.ui:97
+msgid "Theme"
+msgstr "Tema"
+
+#: data/ui/menu.ui:99
+msgctxt "mahjongg theme name"
+msgid "Postmodern"
+msgstr "Postmodern"
+
+#: data/ui/menu.ui:104
+msgctxt "mahjongg theme name"
+msgid "Smooth"
+msgstr "Suavitzat"
+
+#: data/ui/menu.ui:109
+msgctxt "mahjongg theme name"
+msgid "Educational"
+msgstr "Educatiu"
+
+#: data/ui/menu.ui:118
+msgid "Game R_ules"
+msgstr "R_egles de joc"
+
+#: data/ui/menu.ui:122
+msgid "_Keyboard Shortcuts"
+msgstr "_Dreceres de teclat"
+
+#: data/ui/menu.ui:126
+msgid "_About Mahjongg"
+msgstr "_Quant al Mahjongg"
+
+#: data/ui/pause-overlay.ui:24
+msgid "Paused"
+msgstr "Aturat"
+
+#: data/ui/pause-overlay.ui:38
+msgid "Re_sume Game"
+msgstr "Re_prèn la partida"
+
+#: data/ui/pause-overlay.ui:60 data/ui/score-dialog.ui:119
+#: src/gnome-mahjongg.vala:178
+msgid "_Quit"
+msgstr "_Surt"
+
+#: data/ui/rules-dialog.ui:7
+msgid "Game Rules"
+msgstr "Regles de joc"
+
+#: data/ui/rules-dialog.ui:14
+msgctxt "game rules"
+msgid "Clear the board by matching pairs of identical tiles"
+msgstr "Netegeu el tauler fent coincidir parelles de fitxes idèntiques"
+
+#: data/ui/rules-dialog.ui:22
+msgctxt "game rules"
+msgid "Only uncovered tiles with a free long edge can be selected"
+msgstr ""
+"Només es poden seleccionar les fitxes descobertes amb una vora llarga lliure"
+
+#: data/ui/rules-dialog.ui:32
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Les rondes es puntuen en funció del temps de compleció"
+
+#: data/ui/rules-dialog.ui:42
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Podeu pausar la partida"
+
+#: data/ui/rules-dialog.ui:43
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "S'ocultaran les cares de les fitxes"
+
+#: data/ui/rules-dialog.ui:53
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Podeu desfer o refer un moviment"
+
+#: data/ui/rules-dialog.ui:54
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "No s'afegeix cap penalització temporal"
+
+#: data/ui/rules-dialog.ui:64
+msgctxt "game rules"
+msgid "You can use hints to reveal matching tiles"
+msgstr "Podeu utilitzar pistes per a revelar les fitxes coincidents"
+
+#: data/ui/rules-dialog.ui:65
+msgctxt "game rules"
+msgid "Adds a 30-second time penalty"
+msgstr "Afegeix una penalització de 30 segons"
+
+#: data/ui/rules-dialog.ui:75
+msgctxt "game rules"
+msgid "You can shuffle tiles when no moves are left"
+msgstr "Podeu barrejar les fitxes quan no quedin moviments"
+
+#: data/ui/rules-dialog.ui:76
+msgctxt "game rules"
+msgid "Adds a 60-second time penalty"
+msgstr "Afegeix una penalització de temps de 60 segons"
+
+#: data/ui/score-dialog.ui:8
+msgid "Scores"
+msgstr "Puntuacions"
+
+#: data/ui/score-dialog.ui:31
+msgid "Game Completed 🎉"
+msgstr "S'ha completat la partida 🎉"
+
+#: data/ui/score-dialog.ui:41
+msgid "Clear Scores…"
+msgstr "Neteja les puntuacions…"
+
+#: data/ui/score-dialog.ui:53
+msgid "No Scores"
+msgstr "Sense puntuacions"
+
+#: data/ui/score-dialog.ui:54
+msgid "Finish a game to see scores"
+msgstr "Finalitzeu una partida per veure puntuacions"
+
+#: data/ui/score-dialog.ui:71
+msgid "Rank"
+msgstr "Rang"
+
+#: data/ui/score-dialog.ui:77
+msgid "Time"
+msgstr "Temps"
+
+#: data/ui/score-dialog.ui:84
+msgid "Player"
+msgstr "Jugador"
+
+#: data/ui/shortcuts-dialog.ui:8
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Partida"
+
+#: data/ui/shortcuts-dialog.ui:12
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Partida nova"
+
+#: data/ui/shortcuts-dialog.ui:18
+msgctxt "shortcut window"
+msgid "Restart Game"
+msgstr "Reinicia la partida"
+
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Fes una pausa a la partida"
+
+#: data/ui/shortcuts-dialog.ui:30
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Desfés"
+
+#: data/ui/shortcuts-dialog.ui:36
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Refés"
+
+#: data/ui/shortcuts-dialog.ui:42
+msgctxt "shortcut window"
+msgid "Show Hint"
+msgstr "Mostra una pista"
+
+#: data/ui/shortcuts-dialog.ui:49
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/ui/shortcuts-dialog.ui:53
+msgctxt "shortcut window"
+msgid "Show Game Rules"
+msgstr "Mostra les regles de joc"
+
+#: data/ui/shortcuts-dialog.ui:59
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Mostra el menú principal"
+
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Mostra les dreceres de teclat"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Tanca la finestra"
+
+#: data/ui/shortcuts-dialog.ui:77
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Surt"
+
+#: data/ui/window.ui:29
+msgid "Undo"
+msgstr "Desfés"
+
+#: data/ui/window.ui:36
+msgid "Redo"
+msgstr "Refés"
+
+#: data/ui/window.ui:43
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: data/ui/window.ui:56
+msgid "Show Hint"
+msgstr "Mostra una pista"
+
+#: src/gnome-mahjongg.vala:13
+msgid "Print release version and exit"
+msgstr "Mostra la informació de la versió i surt"
+
+#: src/gnome-mahjongg.vala:171
+msgid "No Moves Left"
+msgstr "No us queden moviments"
+
+#: src/gnome-mahjongg.vala:173
+msgid ""
+"You can undo your moves and try to find a solution, or reshuffle the "
+"remaining tiles."
+msgstr ""
+"Podeu desfer els vostres moviments i intentar trobar una solució, o "
+"reordenar les fitxes restants."
+
+#: src/gnome-mahjongg.vala:174
+msgid ""
+"You can undo your moves and try to find a solution, or start a new game."
+msgstr ""
+"Podeu desfer els vostres moviments i intentar trobar una solució, o iniciar "
+"una partida nova."
+
+#: src/gnome-mahjongg.vala:183
+msgid "_Reshuffle"
+msgstr "_Reorganitza"
+
+#: src/gnome-mahjongg.vala:185
+msgid "_Continue"
+msgstr "_Continua"
+
+#: src/gnome-mahjongg.vala:232
+msgid "Change Layout?"
+msgstr "Voleu canviar la disposició?"
+
+#: src/gnome-mahjongg.vala:233
+msgid "This will end your current game."
+msgstr "Això acabarà amb la vostra partida actual."
+
+#: src/gnome-mahjongg.vala:237 src/score-dialog.vala:328
+msgid "_Cancel"
+msgstr "_Cancel·la"
+
+#: src/gnome-mahjongg.vala:238
+msgid "Change _Layout"
+msgstr "Canvia la _disposició"
+
+#: src/gnome-mahjongg.vala:335
+msgid "translator-credits"
+msgstr ""
+"Jordi Vila <gnome@softcatala.net>\n"
+"Jordi Mallach <jordi@sindominio.net>\n"
+"Xavier Conde <xaviconde@eresmas.com>\n"
+"Jesús Corrius <jesus@softcatala.org>\n"
+"Josep Puigdemont <josep.puigdemont@gmail.com>\n"
+"David Planella <david.planella@gmail.com>\n"
+"Jordi Mas i Hernàndez, <jmas@softcatala.org>\n"
+"Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail.com>\n"
+"Victor Dargallo <victordargallo@disroot.org>"
+
+#: src/gnome-mahjongg.vala:337
+msgid "Layouts by"
+msgstr "Disposicions per"
+
+#: src/score-dialog.vala:62
+#, c-format
+msgid "Layout: %s"
+msgstr "Disposició: %s"
+
+#: src/score-dialog.vala:323
+msgid "Clear All Scores?"
+msgstr "Voleu netejar totes les puntuacions?"
+
+#: src/score-dialog.vala:324
+msgid "This will clear every score for every layout."
+msgstr "Això netejarà totes les puntuacions per a cada disposició."
+
+#: src/score-dialog.vala:329
+msgid "Clear All"
+msgstr "Neteja"
+
+#: src/window.vala:178
+#, c-format
+msgid "Moves Left: %2u"
+msgstr "Moviments que queden: %2u"
+
+#: src/window.vala:184
+msgid "Resume Game"
+msgstr "Reprèn la partida"
+
+#: src/window.vala:196
+msgid "Pause Game"
+msgstr "Posa en pausa la partida"
+
+#~ msgid "GNOME Mahjongg"
+#~ msgstr "GNOME Mahjongg"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "El projecte GNOME"
+
+#~ msgid "Disassemble a pile of tiles by removing matching pairs"
+#~ msgstr ""
+#~ "Separa una pila de fitxes suprimint-ne els parells que es corresponguin"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Easy"
+#~ msgstr "Fàcil"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Difficult"
+#~ msgstr "Difícil"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Main functions"
+#~ msgstr "Funcions principals"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Start a new game"
+#~ msgstr "Comença una partida nova"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Toggle main menu"
+#~ msgstr "Commuta el menú principal"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Help"
+#~ msgstr "Mostra l'ajuda"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Fullscreen"
+#~ msgstr "Pantalla completa"
+
+#~ msgid "Preferences"
+#~ msgstr "Preferències"
+
+#~ msgid "Help"
+#~ msgstr "Ajuda"
+
+#~ msgid "Do you want to start a new game with this map?"
+#~ msgstr "Voleu iniciar un joc nou amb aquest mapa?"
+
+#~ msgid "If you continue playing the next game will use the new map."
+#~ msgstr "Si continueu jugant el proper joc utilitzarà el mapa nou."
+
+#~ msgid "Use _new map"
+#~ msgstr "Utilitza el mapa _nou"
+
+#~ msgid "There are no more moves."
+#~ msgstr "No hi ha més moviments."
+
+#~ msgid ""
+#~ "You can also try to reshuffle the game, but this does not guarantee a "
+#~ "solution."
+#~ msgstr ""
+#~ "També podeu reorganitzar les fitxes, però no us garanteix la solució."
+
+#~ msgid "_Undo"
+#~ msgstr "_Desfés"
+
+#~ msgid "_Restart"
+#~ msgstr "_Reinicia"
+
+#~ msgid "_New game"
+#~ msgstr "Partida _nova"
+
+#~ msgid "Maps:"
+#~ msgstr "Mapes:"
+
+#~ msgid "Tiles:"
+#~ msgstr "Fitxes:"
+
+#~ msgid "A matching game played with Mahjongg tiles"
+#~ msgstr "Un joc d'aparellament amb les fitxes del Mahjongg"
+
+#~ msgid "OK"
+#~ msgstr "D'acord"
+
+#~ msgid "Date"
+#~ msgstr "Data"

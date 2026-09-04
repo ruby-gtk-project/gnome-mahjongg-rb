@@ -4,3 +4,7 @@
 /result-*
 /tmp/
 data/schemas/gschemas.compiled
+/data/locale/
+/data/org.gnome.Mahjongg.Rb.desktop
+/data/org.gnome.Mahjongg.Rb.metainfo.xml
+/po/gnome-mahjongg-rb.pot

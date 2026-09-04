@@ -14,6 +14,12 @@ module Mahjongg
 
     def data_file(relative) = File.join(data_dir, relative)
 
+    # Compiled message catalogues. `rake locale` writes them under data/, and
+    # the installed wrapper points MAHJONGG_RB_LOCALE_DIR at its own copy.
+    def locale_dir
+      ENV.fetch('MAHJONGG_RB_LOCALE_DIR', data_file('locale'))
+    end
+
     def user_data_dir
       File.join(
         ENV.fetch('XDG_DATA_HOME', File.join(Dir.home, '.local', 'share')),

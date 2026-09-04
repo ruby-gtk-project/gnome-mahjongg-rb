@@ -2,9 +2,13 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
+
 module Mahjongg
   # The seven rules of the game, one row each.
   class RulesDialog
+    include I18n
+
     def build
       dialog.tap do |dlg|
         dlg.add(page)
@@ -21,7 +25,7 @@ module Mahjongg
 
     def dialog
       @dialog ||= Adwaita::PreferencesDialog.new.tap do |dlg|
-        dlg.title = 'Game Rules'
+        dlg.title = _('Game Rules')
         dlg.content_width = 600
       end
     end
@@ -31,33 +35,44 @@ module Mahjongg
 
     def rules
       @rules ||= [
-        rule("#{Application::APP_ID}-symbolic", 'Clear the board by matching pairs of identical tiles'),
-        rule('object-select-symbolic', 'Only uncovered tiles with a free long edge can be selected'),
-        rule('stopwatch-symbolic', 'Rounds are scored based on completion time'),
+        rule(
+          "#{Application::APP_ID}-symbolic",
+          rules_text('Clear the board by matching pairs of identical tiles'),
+        ),
+        rule(
+          'object-select-symbolic',
+          rules_text('Only uncovered tiles with a free long edge can be selected'),
+        ),
+        rule(
+          'stopwatch-symbolic',
+          rules_text('Rounds are scored based on completion time'),
+        ),
         rule(
           'media-playback-pause-symbolic',
-          'You can pause the game',
-          'Tile faces will be hidden',
+          rules_text('You can pause the game'),
+          rules_text('Tile faces will be hidden'),
         ),
         rule(
           'edit-undo-symbolic',
-          'You can undo or redo a move',
-          'No time penalty is added',
+          rules_text('You can undo or redo a move'),
+          rules_text('No time penalty is added'),
         ),
         rule(
           'dialog-information-symbolic',
-          'You can use hints to reveal matching tiles',
-          'Adds a 30-second time penalty',
+          rules_text('You can use hints to reveal matching tiles'),
+          rules_text('Adds a 30-second time penalty'),
         ),
         rule(
           'media-playlist-shuffle-symbolic',
-          'You can shuffle tiles when no moves are left',
-          'Adds a 60-second time penalty',
+          rules_text('You can shuffle tiles when no moves are left'),
+          rules_text('Adds a 60-second time penalty'),
         ),
       ]
     end
 
     private
+
+      def rules_text(message) = p_('game rules', message)
 
       def rule(icon_name, title, subtitle = nil)
         Adwaita::ActionRow.new.tap do |row|

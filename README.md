@@ -31,7 +31,7 @@ of the game out.
 
 ```sh
 direnv allow          # or: nix develop
-rake schema           # compile the GSettings schema into data/schemas
+rake schema locale    # GSettings schema, and the 93 message catalogues
 ./bin/gnome-mahjongg-rb
 ```
 
@@ -45,8 +45,10 @@ nix run .
 ## Development
 
 ```sh
-rake                  # schema, tests, lint
+rake                  # schema, catalogues, metadata, tests, lint
 rake test             # the two test scripts on their own
+rake locale           # recompile po/*.po after a translation update
+rake pot              # regenerate the template from po/POTFILES.in
 rake lint             # rubocop, including the custom cops in cops/
 ```
 
@@ -63,6 +65,7 @@ dialog, winning a game — and writes screenshots to `tmp/shots` as it goes.
 | `lib/mahjongg/application.rb` | Actions, settings, save file, score file |
 | `lib/mahjongg/score_dialog.rb` | The scores column view |
 | `data/` | Layouts, tile sets, CSS, GSettings schema, icons |
+| `po/` | Upstream's 93 message catalogues, reused unchanged |
 
 [PORTING.md](PORTING.md) covers how the Vala maps onto this, and
 [FINDINGS.md](FINDINGS.md) records the ruby-gnome defects found on the way.
@@ -70,7 +73,7 @@ dialog, winning a game — and writes screenshots to `tmp/shots` as it goes.
 ## Licence
 
 GPL-2.0-or-later, as upstream. The layouts, tile sets and icons under `data/`
-are upstream's, unchanged apart from the tile-set wrappers described in
-PORTING.md.
+and `po/` are upstream's, unchanged apart from the tile-set wrappers described
+in PORTING.md.
 
 [upstream]: https://gitlab.gnome.org/GNOME/gnome-mahjongg

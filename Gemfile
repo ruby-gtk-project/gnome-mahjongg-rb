@@ -6,6 +6,7 @@ gem 'adwaita', '~> 4.3'
 gem 'gtk4', '~> 4.3'
 gem 'rsvg2', '~> 4.3'
 gem 'rexml', '~> 3.4'
+gem 'gettext', '~> 3.5'
 
 group :development do
   gem 'rake', '~> 13.0'

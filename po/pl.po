@@ -1,0 +1,613 @@
+# Polish translation for gnome-mahjongg.
+# Copyright © 1998-2022 the gnome-mahjongg authors.
+# This file is distributed under the same license as the gnome-mahjongg package.
+# Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002.
+# Marcin Gorycki <mgo@olicom.dk>, 1999.
+# Tomasz Kłoczko <kloczek@rudy.mif.pg.gda.pl>, 2000.
+# Artur Flinta <aflinta@gmail.com>, 2003-2007.
+# Bartosz Kosiorek <gang65@poczta.onet.pl>, 2005-2008.
+# Michał Bentkowski <mr.ecik@gmail.com>, 2006.
+# Andrzej Polatyński <andrzej@datatel.net.pl>, 2006.
+# Wadim Dziedzic <wdziedzic@aviary.pl>, 2007-2009.
+# Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
+# Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
+# Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2022.
+# Aviary.pl <community-poland@mozilla.org>, 2007-2022.
+# skantek <antoniskalecki@gmail.com>, 2024.
+# Victoria <royal.victoria@proton.me>, 2025-2026.
+# Victoria Niedzielska <victorian@gnome.org>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-mahjongg\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-mahjongg/issues/\n"
+"POT-Creation-Date: 2026-05-01 16:45+0000\n"
+"PO-Revision-Date: 2026-06-15 10:45+0200\n"
+"Last-Translator: Victoria Niedzielska <victorian@gnome.org>\n"
+"Language-Team: Polish <https://l10n.gnome.org/teams/pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 50.0\n"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:2
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:9 src/gnome-mahjongg.vala:438
+msgid "Mahjongg"
+msgstr "Madżong"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:3
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:10
+msgid "Match tiles and clear the board"
+msgstr "Wyszukuj pary kafelek i wyczyść planszę"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Mahjongg.desktop.in.in:5
+msgid "game;strategy;puzzle;board;"
+msgstr "mahjongg;gra;gierka;strategiczna;strategia;puzzle;puzle;planszowa;plansza;"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:31
+msgid "Width of the window in pixels"
+msgstr "Szerokość okna w pikselach"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:35
+msgid "Height of the window in pixels"
+msgstr "Wysokość okna w pikselach"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:39
+msgid "true if the window is maximized"
+msgstr "„true” jeśli okno jest zmaksymalizowane"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:12
+msgid ""
+"Single-player tile-matching game, commonly known as Mahjong solitaire. Tiles "
+"are stacked on the board at the start of the game. The goal is to remove all "
+"the tiles in as little time as possible. Select two matching tiles and they "
+"will disappear from the board, but you can only select a tile if there is an "
+"empty space to its left or right at the same level. Be careful: tiles that "
+"look alike may actually be slightly different."
+msgstr ""
+"Jednoosobowa gra polegająca na dopasowywaniu kafelek, popularnie znana jako "
+"Pasjans Madżong. Na początku gry kafelki są ułożone na sobie. Celem jest "
+"usunięcie wszystkich kafelek w najszybszym możliwym czasie. Zaznacz dwa "
+"pasujące kafelki, a one znikną z planszy, ale możesz tylko zaznaczyć kafelkę "
+"jeśli na lewo lub prawo na jej wysokości jest pusto. Uważaj: kafelki które "
+"wyglądają podobnie mogą się delikatnie różnić."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:21
+msgid ""
+"You can choose from a variety of starting layouts, some easy and some "
+"difficult. If you get stuck, you can ask for a hint, but this adds a large "
+"time penalty."
+msgstr ""
+"Możesz wybierać wśród wielu szablonów, niektóre łatwe, a niektóre trudne. "
+"Jeśli utkniesz możesz użyć wskazówki, ale doda to dużą karę czasową."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:34
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:42
+msgid "Mahjongg in Light Style"
+msgstr "Madżong w jasnym stylu"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:38
+msgid "Mahjongg in Dark Style"
+msgstr "Madżong w ciemnym stylu"
+
+#: data/ui/menu.ui:8 data/ui/score-dialog.ui:104 src/gnome-mahjongg.vala:180
+msgid "_New Game"
+msgstr "_Nowa gra"
+
+#: data/ui/menu.ui:12 data/ui/pause-overlay.ui:49
+msgid "_Restart Game"
+msgstr "_Zacznij od początku"
+
+#: data/ui/menu.ui:16
+msgid "_Scores"
+msgstr "_Wyniki"
+
+#: data/ui/menu.ui:22
+msgid "_Layout"
+msgstr "_Szablon"
+
+#: data/ui/menu.ui:25
+msgctxt "mahjongg map name"
+msgid "Turtle"
+msgstr "Żółw"
+
+#: data/ui/menu.ui:28
+msgctxt "mahjongg map name"
+msgid "The Ziggurat"
+msgstr "Ziggurat"
+
+#: data/ui/menu.ui:31
+msgctxt "mahjongg map name"
+msgid "Four Bridges"
+msgstr "Cztery mosty"
+
+#: data/ui/menu.ui:34
+msgctxt "mahjongg map name"
+msgid "Cloud"
+msgstr "Chmura"
+
+#: data/ui/menu.ui:37
+msgctxt "mahjongg map name"
+msgid "Tic-Tac-Toe"
+msgstr "Kółko i krzyżyk"
+
+#: data/ui/menu.ui:40
+msgctxt "mahjongg map name"
+msgid "Red Dragon"
+msgstr "Czerwony smok"
+
+#: data/ui/menu.ui:43
+msgctxt "mahjongg map name"
+msgid "Overpass"
+msgstr "Wiadukt"
+
+#: data/ui/menu.ui:46
+msgctxt "mahjongg map name"
+msgid "Pyramid's Walls"
+msgstr "Ściany piramidy"
+
+#: data/ui/menu.ui:49
+msgctxt "mahjongg map name"
+msgid "Confounding Cross"
+msgstr "Krzyż uwikłania"
+
+#: data/ui/menu.ui:52
+msgctxt "mahjongg map name"
+msgid "Taipei"
+msgstr "Taipei"
+
+#: data/ui/menu.ui:57
+msgid "Layout _Progression"
+msgstr "Postęp sz_ablonu"
+
+#: data/ui/menu.ui:60
+msgctxt "layout progression"
+msgid "No Progression"
+msgstr "Brak postępu"
+
+#: data/ui/menu.ui:65
+msgctxt "layout progression"
+msgid "Sequential"
+msgstr "Sekwencyjne"
+
+#: data/ui/menu.ui:70
+msgctxt "layout progression"
+msgid "Random"
+msgstr "Losowe"
+
+#: data/ui/menu.ui:77
+msgid "_Appearance"
+msgstr "W_ygląd"
+
+#: data/ui/menu.ui:79
+msgid "Background"
+msgstr "Tło"
+
+#: data/ui/menu.ui:81
+msgctxt "background color"
+msgid "Follow System"
+msgstr "Styl systemowy"
+
+#: data/ui/menu.ui:86
+msgctxt "background color"
+msgid "Light"
+msgstr "Jasny"
+
+#: data/ui/menu.ui:91
+msgctxt "background color"
+msgid "Dark"
+msgstr "Ciemny"
+
+#: data/ui/menu.ui:97
+msgid "Theme"
+msgstr "Motyw"
+
+#: data/ui/menu.ui:99
+msgctxt "mahjongg theme name"
+msgid "Postmodern"
+msgstr "Postmodernistyczny"
+
+#: data/ui/menu.ui:104
+msgctxt "mahjongg theme name"
+msgid "Smooth"
+msgstr "Smukły"
+
+#: data/ui/menu.ui:109
+msgctxt "mahjongg theme name"
+msgid "Educational"
+msgstr "Edukacyjny"
+
+#: data/ui/menu.ui:118
+msgid "Game R_ules"
+msgstr "Zasady _gry"
+
+#: data/ui/menu.ui:122
+msgid "_Keyboard Shortcuts"
+msgstr "_Skróty klawiszowe"
+
+#: data/ui/menu.ui:126
+msgid "_About Mahjongg"
+msgstr "_O grze"
+
+#: data/ui/pause-overlay.ui:24
+msgid "Paused"
+msgstr "Wstrzymano"
+
+#: data/ui/pause-overlay.ui:38
+msgid "Re_sume Game"
+msgstr "W_znów grę"
+
+#: data/ui/pause-overlay.ui:60 data/ui/score-dialog.ui:119
+#: src/gnome-mahjongg.vala:178
+msgid "_Quit"
+msgstr "_Zakończ działanie"
+
+#: data/ui/rules-dialog.ui:7
+msgid "Game Rules"
+msgstr "Zasady gry"
+
+#: data/ui/rules-dialog.ui:14
+msgctxt "game rules"
+msgid "Clear the board by matching pairs of identical tiles"
+msgstr "Wyczyść planszę poprzez dopasowywanie par identycznych kafelek"
+
+#: data/ui/rules-dialog.ui:22
+msgctxt "game rules"
+msgid "Only uncovered tiles with a free long edge can be selected"
+msgstr ""
+"Tylko odkryte kafelki, których lewo lub prawo jest pustę mogą być zaznaczone"
+
+#: data/ui/rules-dialog.ui:32
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Rundy są punktowane na podstawie czasu ukończenia"
+
+#: data/ui/rules-dialog.ui:42
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Możesz wstrzymać grę"
+
+#: data/ui/rules-dialog.ui:43
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "Wygląd kafelek będzie ukryty"
+
+#: data/ui/rules-dialog.ui:53
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Możesz cofnąć lub ponowić ruch"
+
+#: data/ui/rules-dialog.ui:54
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Nie jest dodawana żadna kara czasowa"
+
+#: data/ui/rules-dialog.ui:64
+msgctxt "game rules"
+msgid "You can use hints to reveal matching tiles"
+msgstr "Możesz użyć wskazówek, by odkryć jedną parę kafelek"
+
+#: data/ui/rules-dialog.ui:65
+msgctxt "game rules"
+msgid "Adds a 30-second time penalty"
+msgstr "Doda to 30 sekund kary czasowej"
+
+#: data/ui/rules-dialog.ui:75
+msgctxt "game rules"
+msgid "You can shuffle tiles when no moves are left"
+msgstr ""
+"Możesz pomieszać pozostałe kafelki, jeśli nie ma żadnych dostępnych ruchów"
+
+#: data/ui/rules-dialog.ui:76
+msgctxt "game rules"
+msgid "Adds a 60-second time penalty"
+msgstr "Doda to 60 sekund kary czasowej"
+
+#: data/ui/score-dialog.ui:8
+msgid "Scores"
+msgstr "Wyniki"
+
+#: data/ui/score-dialog.ui:31
+msgid "Game Completed 🎉"
+msgstr "Gra ukończona 🎉"
+
+#: data/ui/score-dialog.ui:41
+msgid "Clear Scores…"
+msgstr "Wyczyść wyniki…"
+
+#: data/ui/score-dialog.ui:53
+msgid "No Scores"
+msgstr "Brak wyników"
+
+#: data/ui/score-dialog.ui:54
+msgid "Finish a game to see scores"
+msgstr "Zakończ grę, aby zobaczyć wyniki"
+
+#: data/ui/score-dialog.ui:71
+msgid "Rank"
+msgstr "Ranking"
+
+#: data/ui/score-dialog.ui:77
+msgid "Time"
+msgstr "Czas"
+
+#: data/ui/score-dialog.ui:84
+msgid "Player"
+msgstr "Gracz"
+
+#: data/ui/shortcuts-dialog.ui:8
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Gra"
+
+#: data/ui/shortcuts-dialog.ui:12
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Nowa gra"
+
+#: data/ui/shortcuts-dialog.ui:18
+msgctxt "shortcut window"
+msgid "Restart Game"
+msgstr "Zaczęcie od początku"
+
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Wstrzymanie gry"
+
+#: data/ui/shortcuts-dialog.ui:30
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Cofnięcie"
+
+#: data/ui/shortcuts-dialog.ui:36
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Ponowienie"
+
+#: data/ui/shortcuts-dialog.ui:42
+msgctxt "shortcut window"
+msgid "Show Hint"
+msgstr "Wyświetlenie wskazówki"
+
+#: data/ui/shortcuts-dialog.ui:49
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Ogólne"
+
+#: data/ui/shortcuts-dialog.ui:53
+msgctxt "shortcut window"
+msgid "Show Game Rules"
+msgstr "Wyświetlenie zasad gry"
+
+#: data/ui/shortcuts-dialog.ui:59
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Wyświetlenie menu głównego"
+
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Wyświetlenie skrótów klawiszowych"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Zamknięcie okna"
+
+#: data/ui/shortcuts-dialog.ui:77
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Zakończenie działania"
+
+#: data/ui/window.ui:29
+msgid "Undo"
+msgstr "Cofnij"
+
+#: data/ui/window.ui:36
+msgid "Redo"
+msgstr "Ponów"
+
+#: data/ui/window.ui:43
+msgid "Main Menu"
+msgstr "Menu główne"
+
+#: data/ui/window.ui:56
+msgid "Show Hint"
+msgstr "Wyświetl wskazówkę"
+
+#: src/gnome-mahjongg.vala:13
+msgid "Print release version and exit"
+msgstr "Wyświetla wersję i kończy działanie"
+
+#: src/gnome-mahjongg.vala:171
+msgid "No Moves Left"
+msgstr "Nie ma żadnych dostępnych ruchów"
+
+#: src/gnome-mahjongg.vala:173
+msgid ""
+"You can undo your moves and try to find a solution, or reshuffle the "
+"remaining tiles."
+msgstr ""
+"Możesz cofnąć swoje ruchy i spróbować znaleźć rozwiązanie, lub pomieszać "
+"pozostałe kafelki."
+
+#: src/gnome-mahjongg.vala:174
+msgid ""
+"You can undo your moves and try to find a solution, or start a new game."
+msgstr ""
+"Możesz cofnąć swoje ruchy i spróbować znaleźć rozwiązanie, lub zacząć nową "
+"grę."
+
+#: src/gnome-mahjongg.vala:183
+msgid "_Reshuffle"
+msgstr "_Pomieszaj"
+
+#: src/gnome-mahjongg.vala:185
+msgid "_Continue"
+msgstr "_Kontynuuj"
+
+#: src/gnome-mahjongg.vala:232
+msgid "Change Layout?"
+msgstr "Zmienić szablon?"
+
+#: src/gnome-mahjongg.vala:233
+msgid "This will end your current game."
+msgstr "To zakończy obecną grę."
+
+#: src/gnome-mahjongg.vala:237 src/score-dialog.vala:328
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+#: src/gnome-mahjongg.vala:238
+msgid "Change _Layout"
+msgstr "Zmień _szablon"
+
+#: src/gnome-mahjongg.vala:335
+msgid "translator-credits"
+msgstr ""
+"Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
+"Marcin Gorycki <mgo@olicom.dk>, 1999\n"
+"Tomasz Kłoczko <kloczek@rudy.mif.pg.gda.pl>, 2000\n"
+"Artur Flinta <aflinta@gmail.com>, 2003-2007\n"
+"Bartosz Kosiorek <gang65@poczta.onet.pl>, 2005-2008\n"
+"Michał Bentkowski <mr.ecik@gmail.com>, 2006\n"
+"Andrzej Polatyński <andrzej@datatel.net.pl>, 2006\n"
+"Wadim Dziedzic <wdziedzic@aviary.pl>, 2007-2009\n"
+"Tomasz Dominikowski <dominikowski@gmail.com>, 2008\n"
+"Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010\n"
+"Wojciech Kapusta <wkapusta@aviary.pl>, 2009\n"
+"Piotr Drąg <piotrdrag@gmail.com>, 2010-2022\n"
+"Aviary.pl <community-poland@mozilla.org>, 2007-2022\n"
+"skantek <antoniskalecki@gmail.com>, 2024\n"
+"Victoria Niedzielska <victorian@gnome.org>, 2025-2026"
+
+#: src/gnome-mahjongg.vala:337
+msgid "Layouts by"
+msgstr "Szablony zrobione przez:"
+
+#: src/score-dialog.vala:62
+#, c-format
+msgid "Layout: %s"
+msgstr "Szablon: %s"
+
+#: src/score-dialog.vala:323
+msgid "Clear All Scores?"
+msgstr "Wyczyścić wszystkie wyniki?"
+
+#: src/score-dialog.vala:324
+msgid "This will clear every score for every layout."
+msgstr "To wyczyści każdy wynik dla każdego szablonu."
+
+#: src/score-dialog.vala:329
+msgid "Clear All"
+msgstr "Wyczyść wszystko"
+
+#: src/window.vala:178
+#, c-format
+msgid "Moves Left: %2u"
+msgstr "Pozostało ruchów: %2u"
+
+#: src/window.vala:184
+msgid "Resume Game"
+msgstr "Wznów grę"
+
+#: src/window.vala:196
+msgid "Pause Game"
+msgstr "Wstrzymaj grę"
+
+#~ msgid "The Mahjongg Team"
+#~ msgstr "Zespół Madżong"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Playing"
+#~ msgstr "Granie"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Help"
+#~ msgstr "Wyświetlenie pomocy"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Difficult"
+#~ msgstr "Trudne"
+
+#~ msgid "_Help"
+#~ msgstr "_Pomoc"
+
+#~ msgid "Date"
+#~ msgstr "Data"
+
+#~ msgid "Alberto Ruiz"
+#~ msgstr "Alberto Ruiz"
+
+#~ msgid "Disassemble a pile of tiles by removing matching pairs"
+#~ msgstr "Demontaż stosu kostek poprzez zdejmowanie pasujących par"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Easy"
+#~ msgstr "Łatwe"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Main functions"
+#~ msgstr "Główne funkcje"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Start a new game"
+#~ msgstr "Rozpoczęcie nowej gry"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Toggle main menu"
+#~ msgstr "Przełączenie głównego menu"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Fullscreen"
+#~ msgstr "Pełny ekran"
+
+#~ msgid "Preferences"
+#~ msgstr "Preferencje"
+
+#~ msgid "Do you want to start a new game with this map?"
+#~ msgstr "Rozpocząć nową grę na tej planszy?"
+
+#~ msgid "If you continue playing the next game will use the new map."
+#~ msgstr ""
+#~ "W przypadku kontynuacji gry, następna gra rozpocznie się na nowej planszy."
+
+#~ msgid "Use _new map"
+#~ msgstr "Wybierz _nową planszę"
+
+#~ msgid "There are no more moves."
+#~ msgstr "Brak możliwości ruchu."
+
+#~ msgid ""
+#~ "You can also try to reshuffle the game, but this does not guarantee a "
+#~ "solution."
+#~ msgstr ""
+#~ "Można także spróbować wymieszać kostki, ale to nie gwarantuje możliwości "
+#~ "rozwiązania."
+
+#~ msgid "_Undo"
+#~ msgstr "_Cofnij"
+
+#~ msgid "_Restart"
+#~ msgstr "_Zacznij od początku"
+
+#~ msgid "_New game"
+#~ msgstr "_Nowa gra"
+
+#~ msgid "Maps:"
+#~ msgstr "Plansze:"
+
+#~ msgid "Tiles:"
+#~ msgstr "Kostki:"
+
+#~ msgid "A matching game played with Mahjongg tiles"
+#~ msgstr "Gra polegająca na wyszukiwaniu par kostek madżonga"
+
+#~ msgid "OK"
+#~ msgstr "OK"

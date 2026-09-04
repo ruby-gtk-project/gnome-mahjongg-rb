@@ -2,11 +2,15 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
+
 module Mahjongg
   # The keyboard shortcuts window. Items given an action name pick their
   # accelerator up from the application; F10 belongs to GTK, so it is spelled
   # out.
   class ShortcutsDialog
+    include I18n
+
     GAME_SHORTCUTS = [
       ['New Game', 'app.new-game'],
       ['Restart Game', 'app.restart-game'],
@@ -44,25 +48,33 @@ module Mahjongg
     def dialog = @dialog ||= Adwaita::ShortcutsDialog.new
 
     def game_section
-      @game_section ||= Adwaita::ShortcutsSection.new.tap { |section| section.title = 'Game' }
+      @game_section ||= Adwaita::ShortcutsSection.new.tap do |section|
+        section.title = shortcut_text('Game')
+      end
     end
 
     def general_section
-      @general_section ||= Adwaita::ShortcutsSection.new.tap { |section| section.title = 'General' }
+      @general_section ||= Adwaita::ShortcutsSection.new.tap do |section|
+        section.title = shortcut_text('General')
+      end
     end
 
     private
+
+      def shortcut_text(message) = p_('shortcut window', message)
 
       # `Adwaita::ShortcutsItem.new(title, x)` always resolves to the
       # (title, accelerator) overload in the Ruby bindings — the keyword form
       # the introspection data advertises is rejected — so an action-driven
       # item is built with an empty accelerator and then given its action.
       def action_item(title, action_name)
-        Adwaita::ShortcutsItem.new(title, '').tap do |item|
+        Adwaita::ShortcutsItem.new(shortcut_text(title), '').tap do |item|
           item.action_name = action_name
         end
       end
 
-      def accelerator_item(title, accelerator) = Adwaita::ShortcutsItem.new(title, accelerator)
+      def accelerator_item(title, accelerator)
+        Adwaita::ShortcutsItem.new(shortcut_text(title), accelerator)
+      end
   end
 end

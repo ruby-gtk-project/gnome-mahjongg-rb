@@ -1,0 +1,625 @@
+# Serbian translation of gnome-games
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2025.
+# This file is distributed under the same license as the gnome-games package.
+# Душан Марјановић <madafaka@bsd.org.yu>
+# Игор Несторовић <igor@prevod.org>, 2005.
+# Милош Поповић <gpopac@gmai, 2010.
+# Бранко Кокановић <branko.kokanovic@gmail.com>, 2010.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2025.
+# Марко Костић <marko.m.kostic@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: Гномове игре\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-mahjongg/issues/\n"
+"POT-Creation-Date: 2026-03-18 18:43+0000\n"
+"PO-Revision-Date: 2026-03-21 12:27+0100\n"
+"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
+"Language-Team: српски <gnome-sr@googlegroups.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Project-Style: gnome\n"
+"X-Generator: Poedit 3.9\n"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:2
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:9 src/gnome-mahjongg.vala:438
+msgid "Mahjongg"
+msgstr "Махјонг"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:3
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:10
+msgid "Match tiles and clear the board"
+msgstr "Пронађите парове плочица и очистите таблу"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Mahjongg.desktop.in.in:5
+msgid "game;strategy;puzzle;board;"
+msgstr "game;strategy;puzzle;board;махјонг;игра;стратегија;слагалица;табла;"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:31
+msgid "Width of the window in pixels"
+msgstr "Ширина прозора у тачкицама"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:35
+msgid "Height of the window in pixels"
+msgstr "Висина прозора у тачкицама"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:39
+msgid "true if the window is maximized"
+msgstr "изабрано ако је прозор увећан"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:12
+msgid ""
+"Single-player tile-matching game, commonly known as Mahjong solitaire. Tiles "
+"are stacked on the board at the start of the game. The goal is to remove all "
+"the tiles in as little time as possible. Select two matching tiles and they "
+"will disappear from the board, but you can only select a tile if there is an "
+"empty space to its left or right at the same level. Be careful: tiles that "
+"look alike may actually be slightly different."
+msgstr ""
+"Усамљеничко издање класичне Источњачке игре са плочицама. Плочице су "
+"нагомилане на табли на почетку игре. Ваш задатак је да уклоните све плочице "
+"у што краћем времену. Изаберите две исте плочице и оне ће нестати са табле, "
+"али можете изабрати плочицу само ако је простор на истом нивоу са њене леве "
+"или десне стране слободан. Будите пажљиви: плочице које су сличне једна "
+"другој могу заправо бити незнатно различите."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:21
+msgid ""
+"You can choose from a variety of starting layouts, some easy and some "
+"difficult. If you get stuck, you can ask for a hint, but this adds a large "
+"time penalty."
+msgstr ""
+"Махјонг се одликује великим избором почетних распореда, неки су лаки а неки "
+"тешки. Ако се којим случајем нађете у безизлазној ситуацији, можете "
+"потражити савет, али то вас кажњава додавањем времена."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:34
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:42
+msgid "Mahjongg in Light Style"
+msgstr "Махјонг у светлом стилу"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:38
+msgid "Mahjongg in Dark Style"
+msgstr "Махјонг у тамном силу"
+
+#: data/ui/menu.ui:8 data/ui/score-dialog.ui:104 src/gnome-mahjongg.vala:180
+msgid "_New Game"
+msgstr "_Нова игра"
+
+#: data/ui/menu.ui:12 data/ui/pause-overlay.ui:49
+msgid "_Restart Game"
+msgstr "_Поново покрени"
+
+#: data/ui/menu.ui:16
+msgid "_Scores"
+msgstr "_Резултати"
+
+#: data/ui/menu.ui:22
+msgid "_Layout"
+msgstr "_Распоред"
+
+#: data/ui/menu.ui:25
+msgctxt "mahjongg map name"
+msgid "Turtle"
+msgstr "Корњача"
+
+#: data/ui/menu.ui:28
+msgctxt "mahjongg map name"
+msgid "The Ziggurat"
+msgstr "Зигурат"
+
+#: data/ui/menu.ui:31
+msgctxt "mahjongg map name"
+msgid "Four Bridges"
+msgstr "Четири моста"
+
+#: data/ui/menu.ui:34
+msgctxt "mahjongg map name"
+msgid "Cloud"
+msgstr "Облак"
+
+#: data/ui/menu.ui:37
+msgctxt "mahjongg map name"
+msgid "Tic-Tac-Toe"
+msgstr "Икс-окс"
+
+#: data/ui/menu.ui:40
+msgctxt "mahjongg map name"
+msgid "Red Dragon"
+msgstr "Црвени змај"
+
+#: data/ui/menu.ui:43
+msgctxt "mahjongg map name"
+msgid "Overpass"
+msgstr "Надвожњак"
+
+#: data/ui/menu.ui:46
+msgctxt "mahjongg map name"
+msgid "Pyramid's Walls"
+msgstr "Зидови пирамиде"
+
+#: data/ui/menu.ui:49
+msgctxt "mahjongg map name"
+msgid "Confounding Cross"
+msgstr "Збуњујући крст"
+
+#: data/ui/menu.ui:52
+msgctxt "mahjongg map name"
+msgid "Taipei"
+msgstr "Тајпеј"
+
+#: data/ui/menu.ui:57
+msgid "Layout _Progression"
+msgstr "Окренутост _распореда"
+
+#: data/ui/menu.ui:60
+msgctxt "layout progression"
+msgid "No Progression"
+msgstr "Без окренутости"
+
+#: data/ui/menu.ui:65
+msgctxt "layout progression"
+msgid "Sequential"
+msgstr "Секвенцијално"
+
+#: data/ui/menu.ui:70
+msgctxt "layout progression"
+msgid "Random"
+msgstr "Насумично"
+
+#: data/ui/menu.ui:77
+msgid "_Appearance"
+msgstr "_Изглед"
+
+#: data/ui/menu.ui:79
+msgid "Background"
+msgstr "Позадина"
+
+#: data/ui/menu.ui:81
+msgctxt "background color"
+msgid "Follow System"
+msgstr "Прати систем"
+
+#: data/ui/menu.ui:86
+msgctxt "background color"
+msgid "Light"
+msgstr "Светла"
+
+#: data/ui/menu.ui:91
+msgctxt "background color"
+msgid "Dark"
+msgstr "Тамна"
+
+#: data/ui/menu.ui:97
+msgid "Theme"
+msgstr "Тема"
+
+#: data/ui/menu.ui:99
+msgctxt "mahjongg theme name"
+msgid "Postmodern"
+msgstr "Савремена"
+
+#: data/ui/menu.ui:104
+msgctxt "mahjongg theme name"
+msgid "Smooth"
+msgstr "Умекшана"
+
+#: data/ui/menu.ui:109
+msgctxt "mahjongg theme name"
+msgid "Educational"
+msgstr "Образовна"
+
+#: data/ui/menu.ui:118
+msgid "Game R_ules"
+msgstr "Правила _игре"
+
+#: data/ui/menu.ui:122
+msgid "_Keyboard Shortcuts"
+msgstr "_Пречице на тастатури"
+
+#: data/ui/menu.ui:126
+msgid "_About Mahjongg"
+msgstr "_О Махјонгу"
+
+#: data/ui/pause-overlay.ui:24
+msgid "Paused"
+msgstr "Паузирано"
+
+#: data/ui/pause-overlay.ui:38
+msgid "Re_sume Game"
+msgstr "На_стави игру"
+
+#: data/ui/pause-overlay.ui:60 data/ui/score-dialog.ui:119
+#: src/gnome-mahjongg.vala:178
+msgid "_Quit"
+msgstr "_Изађи"
+
+#: data/ui/rules-dialog.ui:7
+msgid "Game Rules"
+msgstr "Правила игре"
+
+#: data/ui/rules-dialog.ui:14
+msgctxt "game rules"
+msgid "Clear the board by matching pairs of identical tiles"
+msgstr "Очистите таблу подударањем парова истоветних плочица"
+
+#: data/ui/rules-dialog.ui:22
+msgctxt "game rules"
+msgid "Only uncovered tiles with a free long edge can be selected"
+msgstr "Само непокривене плочице са слободном дужом ивицом се могу изабрати"
+
+#: data/ui/rules-dialog.ui:32
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Рунде се збрајају на основу времена играњ"
+
+#: data/ui/rules-dialog.ui:42
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Можете да зауставите игру"
+
+#: data/ui/rules-dialog.ui:43
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "Лица плочица биће скривена"
+
+#: data/ui/rules-dialog.ui:53
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Можете да опозовете или да поновите потез"
+
+#: data/ui/rules-dialog.ui:54
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Временска казна није додата"
+
+#: data/ui/rules-dialog.ui:64
+msgctxt "game rules"
+msgid "You can use hints to reveal matching tiles"
+msgstr "Можете да користите савете за откривање подударних плочица"
+
+#: data/ui/rules-dialog.ui:65
+msgctxt "game rules"
+msgid "Adds a 30-second time penalty"
+msgstr "Додаје временску казну од 30 секунде"
+
+#: data/ui/rules-dialog.ui:75
+msgctxt "game rules"
+msgid "You can shuffle tiles when no moves are left"
+msgstr "Можете да измешате плочице када нема више потеза"
+
+#: data/ui/rules-dialog.ui:76
+msgctxt "game rules"
+msgid "Adds a 60-second time penalty"
+msgstr "Додаје временску казну од 60 секунде"
+
+#: data/ui/score-dialog.ui:8
+msgid "Scores"
+msgstr "Резултати"
+
+#: data/ui/score-dialog.ui:31
+msgid "Game Completed 🎉"
+msgstr "Игра је завршена 🎉"
+
+#: data/ui/score-dialog.ui:41
+msgid "Clear Scores…"
+msgstr "Очисти резултате…"
+
+#: data/ui/score-dialog.ui:53
+msgid "No Scores"
+msgstr "Нема резултата"
+
+#: data/ui/score-dialog.ui:54
+msgid "Finish a game to see scores"
+msgstr "Завршите игру да видите резултате"
+
+#: data/ui/score-dialog.ui:71
+msgid "Rank"
+msgstr "Пласман"
+
+#: data/ui/score-dialog.ui:77
+msgid "Time"
+msgstr "Време"
+
+#: data/ui/score-dialog.ui:84
+msgid "Player"
+msgstr "Играч"
+
+#: data/ui/shortcuts-dialog.ui:8
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Игра"
+
+#: data/ui/shortcuts-dialog.ui:12
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Нова игра"
+
+#: data/ui/shortcuts-dialog.ui:18
+msgctxt "shortcut window"
+msgid "Restart Game"
+msgstr "Поново покрени игру"
+
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Зауставља игру"
+
+#: data/ui/shortcuts-dialog.ui:30
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Опозови"
+
+#: data/ui/shortcuts-dialog.ui:36
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Понавља"
+
+#: data/ui/shortcuts-dialog.ui:42
+msgctxt "shortcut window"
+msgid "Show Hint"
+msgstr "Приказује савет"
+
+#: data/ui/shortcuts-dialog.ui:49
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Опште"
+
+#: data/ui/shortcuts-dialog.ui:53
+msgctxt "shortcut window"
+msgid "Show Game Rules"
+msgstr "Приказује правила игре"
+
+#: data/ui/shortcuts-dialog.ui:59
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Приказује главни изборник"
+
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Приказ пречица на тастатури"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Затвори прозор"
+
+#: data/ui/shortcuts-dialog.ui:77
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Излазак"
+
+#: data/ui/window.ui:29
+msgid "Undo"
+msgstr "Опозови"
+
+#: data/ui/window.ui:36
+msgid "Redo"
+msgstr "Понавља"
+
+#: data/ui/window.ui:43
+msgid "Main Menu"
+msgstr "Главни изборник"
+
+#: data/ui/window.ui:56
+msgid "Show Hint"
+msgstr "Приказује савет"
+
+#: src/gnome-mahjongg.vala:13
+msgid "Print release version and exit"
+msgstr "Исписује издање и излази"
+
+#: src/gnome-mahjongg.vala:171
+msgid "No Moves Left"
+msgstr "Нема више потеза"
+
+#: src/gnome-mahjongg.vala:173
+msgid ""
+"You can undo your moves and try to find a solution, or reshuffle the "
+"remaining tiles."
+msgstr ""
+"Можете да поништите потезе и покушате да нађете решење, или да измешате "
+"преостале плочице."
+
+#: src/gnome-mahjongg.vala:174
+msgid ""
+"You can undo your moves and try to find a solution, or start a new game."
+msgstr ""
+"Можете да поништите потезе и покушате да нађете решење, или да започнете "
+"нову игру."
+
+#: src/gnome-mahjongg.vala:183
+msgid "_Reshuffle"
+msgstr "_Измешај"
+
+#: src/gnome-mahjongg.vala:185
+msgid "_Continue"
+msgstr "_Настави"
+
+#: src/gnome-mahjongg.vala:232
+msgid "Change Layout?"
+msgstr "Да изменим распоред?"
+
+#: src/gnome-mahjongg.vala:233
+msgid "This will end your current game."
+msgstr "Ово ће завршити вашу текућу игру."
+
+#: src/gnome-mahjongg.vala:237 src/score-dialog.vala:328
+msgid "_Cancel"
+msgstr "_Откажи"
+
+#: src/gnome-mahjongg.vala:238
+msgid "Change _Layout"
+msgstr "Измени _распоред"
+
+#: src/gnome-mahjongg.vala:335
+msgid "translator-credits"
+msgstr ""
+"Душан Марјановић <madafaka@root.co.yu>\n"
+"Милош Поповић <gpopac@gmail.com>\n"
+"Бранко Кокановић <branko.kokanovic@gmail.com>\n"
+"Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Марко Костић <marko.m.kostic@gmail.com>\n"
+"Превод на српски језик https://гном.срб"
+
+#: src/gnome-mahjongg.vala:337
+msgid "Layouts by"
+msgstr "Распореде су урадили"
+
+#: src/score-dialog.vala:62
+#, c-format
+msgid "Layout: %s"
+msgstr "Распоред: %s"
+
+#: src/score-dialog.vala:323
+msgid "Clear All Scores?"
+msgstr "Да очистим све резултате?"
+
+#: src/score-dialog.vala:324
+msgid "This will clear every score for every layout."
+msgstr "Ово ће очистити све резултате за све распореде."
+
+#: src/score-dialog.vala:329
+msgid "Clear All"
+msgstr "Очисти све"
+
+#: src/window.vala:178
+#, c-format
+msgid "Moves Left: %2u"
+msgstr "Преосталих потеза: %2u"
+
+#: src/window.vala:184
+msgid "Resume Game"
+msgstr "Наставља игру"
+
+#: src/window.vala:196
+msgid "Pause Game"
+msgstr "Зауставља игру"
+
+#~ msgid "The Mahjongg Team"
+#~ msgstr "Екипа Махјонга"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Difficult"
+#~ msgstr "Тешко"
+
+#~ msgctxt "layout rotation"
+#~ msgid "No Rotation"
+#~ msgstr "Без окренутости"
+
+#~ msgid "_Help"
+#~ msgstr "По_моћ"
+
+#~ msgid "Date"
+#~ msgstr "Датум"
+
+#~ msgid "Disassemble a pile of tiles by removing matching pairs"
+#~ msgstr "Расклопите гомилу плочица уклањањем одговарајућих парова"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Easy"
+#~ msgstr "Лако"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Main functions"
+#~ msgstr "Главне функције"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Start a new game"
+#~ msgstr "Почетак нове игре"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Pause the game"
+#~ msgstr "Заустављање игре"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Toggle main menu"
+#~ msgstr "Промени стање главног менија"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Help"
+#~ msgstr "Приказ помоћи"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Fullscreen"
+#~ msgstr "Преко целог екрана"
+
+#~ msgid "Preferences"
+#~ msgstr "Поставке"
+
+#~ msgid "Help"
+#~ msgstr "Помоћ"
+
+#~ msgid "Do you want to start a new game with this map?"
+#~ msgstr "Да ли желите да започнете нову игру са овом мапом?"
+
+#~ msgid "If you continue playing the next game will use the new map."
+#~ msgstr "Уколико наставите да играте следећа игра ће користити нову мапу."
+
+#~ msgid "Use _new map"
+#~ msgstr "Користи нову _мапу"
+
+#~ msgid "There are no more moves."
+#~ msgstr "Нема више потеза."
+
+#~ msgid ""
+#~ "You can also try to reshuffle the game, but this does not guarantee a "
+#~ "solution."
+#~ msgstr ""
+#~ "Можете такође покушати да измешате игру, али то вам неће јемчити решење."
+
+#~ msgid "_Undo"
+#~ msgstr "_Опозови"
+
+#~ msgid "_Restart"
+#~ msgstr "_Поново покрени"
+
+#~ msgid "_New game"
+#~ msgstr "_Нова игра"
+
+#~ msgid "Maps:"
+#~ msgstr "Мапе:"
+
+#~ msgid "Tiles:"
+#~ msgstr "Слике:"
+
+#~ msgid "A matching game played with Mahjongg tiles"
+#~ msgstr "Игра слагања плочица Махјонга"
+
+#~ msgid "OK"
+#~ msgstr "У реду"
+
+#~ msgid "GNOME Mahjongg"
+#~ msgstr "Гномов махјонг"
+
+#~ msgid "The GNOME Project"
+#~ msgstr "Гном пројекат"
+
+#~ msgid "Undo your last move"
+#~ msgstr "Опозовите последњи потез"
+
+#~ msgid "Redo your last move"
+#~ msgstr "Поновите последњи потез"
+
+#~ msgid "Receive a hint for your next move"
+#~ msgstr "Примите савет за следећи потез"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Поставке"
+
+#~ msgid "_Close"
+#~ msgstr "_Затвори"
+
+#~ msgid "org.gnome.Mahjongg"
+#~ msgstr "org.gnome.Mahjongg"
+
+#~ msgid "_Contents"
+#~ msgstr "_Садржај"
+
+#~ msgid "_About"
+#~ msgstr "_О програму"

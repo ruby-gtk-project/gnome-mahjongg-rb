@@ -113,17 +113,44 @@
           # wrapGAppsHook4 has already computed its wrapper arguments, so the
           # schema ends up somewhere the wrapper never looks. Compiling the
           # schema and building the wrapper by hand keeps the two in step.
-          nativeBuildInputs = [ pkgs.makeWrapper ];
+          nativeBuildInputs = [ pkgs.makeWrapper pkgs.gettext ];
           buildInputs = [ gems ] ++ gtkStack;
 
-          dontBuild = true;
+          # The message catalogues are compiled with the gettext gem's rmsgfmt,
+          # not GNU msgfmt — see the Rakefile for why. The desktop entry and the
+          # AppStream metainfo do need GNU msgfmt: only it knows those two merge
+          # formats.
+          buildPhase = ''
+            runHook preBuild
+
+            ${gems.wrappedRuby}/bin/ruby -rbundler/setup -rgettext/tools -e '
+              require "fileutils"
+              File.readlines("po/LINGUAS").map(&:strip)
+                  .reject { |l| l.empty? || l.start_with?("#") }
+                  .select { |l| File.exist?("po/#{l}.po") }
+                  .each do |lang|
+                    dir = "data/locale/#{lang}/LC_MESSAGES"
+                    FileUtils.mkdir_p(dir)
+                    GetText::Tools::MsgFmt.run("po/#{lang}.po", "-o", "#{dir}/gnome-mahjongg-rb.mo")
+                  end
+            '
+
+            msgfmt --desktop -d po \
+              --template=data/org.gnome.Mahjongg.Rb.desktop.in \
+              -o data/org.gnome.Mahjongg.Rb.desktop
+            msgfmt --xml -d po \
+              --template=data/org.gnome.Mahjongg.Rb.metainfo.xml.in \
+              -o data/org.gnome.Mahjongg.Rb.metainfo.xml
+
+            runHook postBuild
+          '';
 
           installPhase = ''
             runHook preInstall
 
             mkdir -p $out/share/gnome-mahjongg-rb $out/share/glib-2.0/schemas \
               $out/share/applications $out/share/dbus-1/services
-            cp -r lib data $out/share/gnome-mahjongg-rb/
+            cp -r lib data po $out/share/gnome-mahjongg-rb/
             # bin/ has to sit next to lib/ for the launcher's require_relative.
             install -Dm755 bin/gnome-mahjongg-rb \
               $out/share/gnome-mahjongg-rb/bin/gnome-mahjongg-rb
@@ -153,6 +180,7 @@
               --add-flags "$out/share/gnome-mahjongg-rb/bin/gnome-mahjongg-rb" \
               --set GI_TYPELIB_PATH "${typelibPath}" \
               --set MAHJONGG_RB_DATA_DIR "$out/share/gnome-mahjongg-rb/data" \
+              --set MAHJONGG_RB_LOCALE_DIR "$out/share/gnome-mahjongg-rb/data/locale" \
               --prefix XDG_DATA_DIRS : "$out/share" \
               --prefix XDG_DATA_DIRS : "$out/share/gsettings-schemas/$name" \
               --prefix XDG_DATA_DIRS : "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}" \
@@ -175,6 +203,7 @@
             pkgs.bundix
             pkgs.pkg-config
             pkgs.glib.dev            # glib-compile-schemas
+            pkgs.gettext             # msgfmt --desktop / --xml
             pkgs.gsettings-desktop-schemas
             pkgs.adwaita-icon-theme
           ] ++ gtkStack;

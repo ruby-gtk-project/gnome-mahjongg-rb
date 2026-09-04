@@ -1,0 +1,527 @@
+# Turkish translation of gnome-mahjongg.
+# Copyright (C) 2000-2002, 2004, 2005, 2008 Free Software Foundation, Inc.
+# Copyright (C) 2019-2024 gnome-mahjongg'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-mahjongg package.
+#
+# Onur Kucuk, <okucuk@yahoo.com>, 2000.
+# Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
+# Hakan Bekdas <hakanbekdas@yahoo.com>, 2006.
+# Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
+# Furkan Ahmet Kara <furkanahmetkara.fk@gmail.com>, 2017.
+# Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015, 2018.
+# Sabri Ünal <yakushabb@gmail.com>, 2023-202.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2017-2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-mahjongg\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-mahjongg/issues/\n"
+"POT-Creation-Date: 2026-03-18 18:43+0000\n"
+"PO-Revision-Date: 2026-03-19 08:00+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"Language-Team: Türkçe <takim@gnome.org.tr>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.7\n"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:2
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:9 src/gnome-mahjongg.vala:438
+msgid "Mahjongg"
+msgstr "Mahjongg"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:3
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:10
+msgid "Match tiles and clear the board"
+msgstr "Karoları eşleştir ve panoyu temizle"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Mahjongg.desktop.in.in:5
+msgid "game;strategy;puzzle;board;"
+msgstr "game;strategy;puzzle;board;oyun;strateji;izlem;bulmaca;bilmece;yapboz;tahta;"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:31
+msgid "Width of the window in pixels"
+msgstr "Pencerenin piksel olarak genişliği"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:35
+msgid "Height of the window in pixels"
+msgstr "Pencerenin piksel olarak yüksekliği"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:39
+msgid "true if the window is maximized"
+msgstr "eğer pencere büyütüldüyse doğru"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:12
+msgid ""
+"Single-player tile-matching game, commonly known as Mahjong solitaire. Tiles "
+"are stacked on the board at the start of the game. The goal is to remove all "
+"the tiles in as little time as possible. Select two matching tiles and they "
+"will disappear from the board, but you can only select a tile if there is an "
+"empty space to its left or right at the same level. Be careful: tiles that "
+"look alike may actually be slightly different."
+msgstr ""
+"Mahjong solitaire olarak bilinen tek oyunculu karo eşleştirme oyunu. Oyunun "
+"başında karolar tahtaya yığılır. Hedef olabildiğince kısa sürede tüm "
+"karoları kaldırmaktır. İki eşleşen karo seçtiğinizde panodan "
+"kaldırılacaklardır, ancak yalnızca aynı düzeyde solunda veya sağında boş "
+"alan varsa karo seçebilirsiniz. Dikkatli olun: birbirine benzeyen karolar "
+"azıcık başka olabilir."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:21
+msgid ""
+"You can choose from a variety of starting layouts, some easy and some "
+"difficult. If you get stuck, you can ask for a hint, but this adds a large "
+"time penalty."
+msgstr ""
+"Bazıları kolay ve bazıları zor çeşitli başlangıç düzenlerinden seçim "
+"yapabilirsiniz. Eğer sıkışırsanız ipucu isteyebilirsiniz, ancak bu büyük bir "
+"zaman cezası ekler."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:34
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:42
+msgid "Mahjongg in Light Style"
+msgstr "Mahjongg açık tema ile"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:38
+msgid "Mahjongg in Dark Style"
+msgstr "Mahjongg koyu tema ile"
+
+#: data/ui/menu.ui:8 data/ui/score-dialog.ui:104 src/gnome-mahjongg.vala:180
+msgid "_New Game"
+msgstr "_Yeni Oyun"
+
+#: data/ui/menu.ui:12 data/ui/pause-overlay.ui:49
+msgid "_Restart Game"
+msgstr "Oyunu _Yeniden Başlat"
+
+#: data/ui/menu.ui:16
+msgid "_Scores"
+msgstr "_Puanlar"
+
+#: data/ui/menu.ui:22
+msgid "_Layout"
+msgstr "_Düzen"
+
+#: data/ui/menu.ui:25
+msgctxt "mahjongg map name"
+msgid "Turtle"
+msgstr "Kaplumbağa"
+
+#: data/ui/menu.ui:28
+msgctxt "mahjongg map name"
+msgid "The Ziggurat"
+msgstr "Ziggurat"
+
+#: data/ui/menu.ui:31
+msgctxt "mahjongg map name"
+msgid "Four Bridges"
+msgstr "Dört Köprü"
+
+#: data/ui/menu.ui:34
+msgctxt "mahjongg map name"
+msgid "Cloud"
+msgstr "Bulut"
+
+#: data/ui/menu.ui:37
+msgctxt "mahjongg map name"
+msgid "Tic-Tac-Toe"
+msgstr "Üç Taş"
+
+#: data/ui/menu.ui:40
+msgctxt "mahjongg map name"
+msgid "Red Dragon"
+msgstr "Kırmızı Ejderha"
+
+#: data/ui/menu.ui:43
+msgctxt "mahjongg map name"
+msgid "Overpass"
+msgstr "Üst Geçit"
+
+#: data/ui/menu.ui:46
+msgctxt "mahjongg map name"
+msgid "Pyramid's Walls"
+msgstr "Piramidin Duvarları"
+
+#: data/ui/menu.ui:49
+msgctxt "mahjongg map name"
+msgid "Confounding Cross"
+msgstr "Çelişik Çapraz"
+
+#: data/ui/menu.ui:52
+msgctxt "mahjongg map name"
+msgid "Taipei"
+msgstr "Taipei"
+
+#: data/ui/menu.ui:57
+msgid "Layout _Progression"
+msgstr "Düzen İl_erleme"
+
+#: data/ui/menu.ui:60
+msgctxt "layout progression"
+msgid "No Progression"
+msgstr "İlerleme Yok"
+
+#: data/ui/menu.ui:65
+msgctxt "layout progression"
+msgid "Sequential"
+msgstr "Ardışık"
+
+#: data/ui/menu.ui:70
+msgctxt "layout progression"
+msgid "Random"
+msgstr "Rastgele"
+
+#: data/ui/menu.ui:77
+msgid "_Appearance"
+msgstr "_Görünüm"
+
+#: data/ui/menu.ui:79
+msgid "Background"
+msgstr "Arka Plan"
+
+#: data/ui/menu.ui:81
+msgctxt "background color"
+msgid "Follow System"
+msgstr "Sistemi İzle"
+
+#: data/ui/menu.ui:86
+msgctxt "background color"
+msgid "Light"
+msgstr "Açık"
+
+#: data/ui/menu.ui:91
+msgctxt "background color"
+msgid "Dark"
+msgstr "Koyu"
+
+#: data/ui/menu.ui:97
+msgid "Theme"
+msgstr "Tema"
+
+#: data/ui/menu.ui:99
+msgctxt "mahjongg theme name"
+msgid "Postmodern"
+msgstr "Postmodern"
+
+#: data/ui/menu.ui:104
+msgctxt "mahjongg theme name"
+msgid "Smooth"
+msgstr "Pürüzsüz"
+
+#: data/ui/menu.ui:109
+msgctxt "mahjongg theme name"
+msgid "Educational"
+msgstr "Eğitim"
+
+#: data/ui/menu.ui:118
+msgid "Game R_ules"
+msgstr "Oyun K_uralları"
+
+#: data/ui/menu.ui:122
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: data/ui/menu.ui:126
+msgid "_About Mahjongg"
+msgstr "Mahjongg _Hakkında"
+
+#: data/ui/pause-overlay.ui:24
+msgid "Paused"
+msgstr "Dondur"
+
+#: data/ui/pause-overlay.ui:38
+msgid "Re_sume Game"
+msgstr "Oyunu _Sürdür"
+
+#: data/ui/pause-overlay.ui:60 data/ui/score-dialog.ui:119
+#: src/gnome-mahjongg.vala:178
+msgid "_Quit"
+msgstr "_Çıkış"
+
+#: data/ui/rules-dialog.ui:7
+msgid "Game Rules"
+msgstr "Oyun Kuralları"
+
+#: data/ui/rules-dialog.ui:14
+msgctxt "game rules"
+msgid "Clear the board by matching pairs of identical tiles"
+msgstr "Aynı karo çiftlerini eşleştirerek tahtayı temizle"
+
+#: data/ui/rules-dialog.ui:22
+msgctxt "game rules"
+msgid "Only uncovered tiles with a free long edge can be selected"
+msgstr "Yalnızca serbest uzun kenarı olan örtülmemiş karolar seçilebilir"
+
+#: data/ui/rules-dialog.ui:32
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Turlar tamamlanma süresine göre puanlanır"
+
+#: data/ui/rules-dialog.ui:42
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Oyunu duraklatabilirsiniz"
+
+#: data/ui/rules-dialog.ui:43
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "Karo yüzeyleri gizlenecek"
+
+#: data/ui/rules-dialog.ui:53
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Bir hamleyi geri alabilir ya da yineleyebilirsiniz"
+
+#: data/ui/rules-dialog.ui:54
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Zaman cezası eklenmez"
+
+#: data/ui/rules-dialog.ui:64
+msgctxt "game rules"
+msgid "You can use hints to reveal matching tiles"
+msgstr "Eşleşen karoları ortaya çıkarmak için ipuçlarını kullanabilirsiniz"
+
+#: data/ui/rules-dialog.ui:65
+msgctxt "game rules"
+msgid "Adds a 30-second time penalty"
+msgstr "30 saniye zaman cezası ekler"
+
+#: data/ui/rules-dialog.ui:75
+msgctxt "game rules"
+msgid "You can shuffle tiles when no moves are left"
+msgstr "Hamle kalmadığında karoları karıştırabilirsiniz"
+
+#: data/ui/rules-dialog.ui:76
+msgctxt "game rules"
+msgid "Adds a 60-second time penalty"
+msgstr "60 saniye zaman cezası ekler"
+
+#: data/ui/score-dialog.ui:8
+msgid "Scores"
+msgstr "Puanlar"
+
+#: data/ui/score-dialog.ui:31
+msgid "Game Completed 🎉"
+msgstr "Oyun Tamamlandı 🎉"
+
+#: data/ui/score-dialog.ui:41
+msgid "Clear Scores…"
+msgstr "Puanları Temizle…"
+
+#: data/ui/score-dialog.ui:53
+msgid "No Scores"
+msgstr "Puan Yok"
+
+#: data/ui/score-dialog.ui:54
+msgid "Finish a game to see scores"
+msgstr "Skorları görmek için bir oyunu bitir"
+
+#: data/ui/score-dialog.ui:71
+msgid "Rank"
+msgstr "Sıralama"
+
+#: data/ui/score-dialog.ui:77
+msgid "Time"
+msgstr "Zaman"
+
+#: data/ui/score-dialog.ui:84
+msgid "Player"
+msgstr "Oyuncu"
+
+#: data/ui/shortcuts-dialog.ui:8
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Oyun"
+
+#: data/ui/shortcuts-dialog.ui:12
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Yeni Oyun"
+
+#: data/ui/shortcuts-dialog.ui:18
+msgctxt "shortcut window"
+msgid "Restart Game"
+msgstr "Oyunu Yeniden Başlat"
+
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Oyunu Duraklat"
+
+#: data/ui/shortcuts-dialog.ui:30
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Geri al"
+
+#: data/ui/shortcuts-dialog.ui:36
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Yinele"
+
+#: data/ui/shortcuts-dialog.ui:42
+msgctxt "shortcut window"
+msgid "Show Hint"
+msgstr "İpucu Göster"
+
+#: data/ui/shortcuts-dialog.ui:49
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Genel"
+
+#: data/ui/shortcuts-dialog.ui:53
+msgctxt "shortcut window"
+msgid "Show Game Rules"
+msgstr "Oyun Kurallarını Göster"
+
+#: data/ui/shortcuts-dialog.ui:59
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Ana Menüyü Göster"
+
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Klavye Kısayollarını göster"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Pencereyi Kapat"
+
+#: data/ui/shortcuts-dialog.ui:77
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Çıkış"
+
+#: data/ui/window.ui:29
+msgid "Undo"
+msgstr "Geri Al"
+
+#: data/ui/window.ui:36
+msgid "Redo"
+msgstr "Yinele"
+
+#: data/ui/window.ui:43
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: data/ui/window.ui:56
+msgid "Show Hint"
+msgstr "İpucu Göster"
+
+#: src/gnome-mahjongg.vala:13
+msgid "Print release version and exit"
+msgstr "Yayım sürümünü yazdır ve çık"
+
+#: src/gnome-mahjongg.vala:171
+msgid "No Moves Left"
+msgstr "Hareket Kalmadı"
+
+#: src/gnome-mahjongg.vala:173
+msgid ""
+"You can undo your moves and try to find a solution, or reshuffle the "
+"remaining tiles."
+msgstr ""
+"Hareketlerinizi geri alıp çözüm bulmayı deneyebilir ya da kalan karoları "
+"yeniden karıştırabilirsiniz."
+
+#: src/gnome-mahjongg.vala:174
+msgid ""
+"You can undo your moves and try to find a solution, or start a new game."
+msgstr ""
+"Hareketlerinizi geri alıp çözüm bulmayı deneyebilir ya da yeni oyun "
+"başlatabilirsiniz."
+
+#: src/gnome-mahjongg.vala:183
+msgid "_Reshuffle"
+msgstr "Yeniden _Karıştır"
+
+#: src/gnome-mahjongg.vala:185
+msgid "_Continue"
+msgstr "_Sürdür"
+
+#: src/gnome-mahjongg.vala:232
+msgid "Change Layout?"
+msgstr "Düzen Değiştirilsin Mi?"
+
+#: src/gnome-mahjongg.vala:233
+msgid "This will end your current game."
+msgstr "Bu, geçerli oyununuzu sonlandıracak."
+
+#: src/gnome-mahjongg.vala:237 src/score-dialog.vala:328
+msgid "_Cancel"
+msgstr "İ_ptal"
+
+#: src/gnome-mahjongg.vala:238
+msgid "Change _Layout"
+msgstr "_Düzeni Değiştir"
+
+#: src/gnome-mahjongg.vala:335
+msgid "translator-credits"
+msgstr ""
+"Emin Tufan Çetin <etcetin@gmail.com>\n"
+"Muhammet Kara <muhammetk@gmail.com>\n"
+"Barış Çiçek <baris@teamforce.name.tr>"
+
+#: src/gnome-mahjongg.vala:337
+msgid "Layouts by"
+msgstr "Düzenler"
+
+#: src/score-dialog.vala:62
+#, c-format
+msgid "Layout: %s"
+msgstr "Düzen: %s"
+
+#: src/score-dialog.vala:323
+msgid "Clear All Scores?"
+msgstr "Tüm Puanlar Temizlensin Mi?"
+
+#: src/score-dialog.vala:324
+msgid "This will clear every score for every layout."
+msgstr "Bu, tüm düzenlerdeki puanları temizleyecek."
+
+#: src/score-dialog.vala:329
+msgid "Clear All"
+msgstr "Tümünü Temizle"
+
+#: src/window.vala:178
+#, c-format
+msgid "Moves Left: %2u"
+msgstr "Kalan Hareket: %2u"
+
+#: src/window.vala:184
+msgid "Resume Game"
+msgstr "Oyunu Sürdür"
+
+#: src/window.vala:196
+msgid "Pause Game"
+msgstr "Oyunu Duraklat"
+
+#~ msgid "The Mahjongg Team"
+#~ msgstr "Mahjongg Takımı"
+
+#~ msgctxt "mahjongg map name"
+#~ msgid "Difficult"
+#~ msgstr "Zor"
+
+#~ msgctxt "layout rotation"
+#~ msgid "No Rotation"
+#~ msgstr "Döndürme Yok"
+
+#~ msgid "_Help"
+#~ msgstr "_Yardım"
+
+#~ msgid "Date"
+#~ msgstr "Tarih"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Playing"
+#~ msgstr "Oynama"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Help"
+#~ msgstr "Yardımı göster"

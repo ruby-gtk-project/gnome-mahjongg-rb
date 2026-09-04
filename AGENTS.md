@@ -24,13 +24,13 @@ that bite the testing harness itself.
 ## Setup
 
 `direnv allow` (or `nix develop`) gets Ruby, GTK4, Libadwaita, librsvg and the
-introspection typelibs. Gems are built by `bundlerEnv` from `gemset.nix`; after
+introspection typelibs, plus GNU gettext for the desktop/AppStream merges. Gems are built by `bundlerEnv` from `gemset.nix`; after
 touching the `Gemfile`, run `nix run nixpkgs#bundix -- -l` to regenerate it (the
 `.envrc` does this for you when `Gemfile.lock` moves ahead).
 
 ```sh
-rake            # schema, tests, lint
-rake test       # 51 logic checks + 80 UI checks, no display needed
+rake            # schema, catalogues, metadata, tests, lint
+rake test       # 57 logic checks + 80 UI checks, no display needed
 ./bin/gnome-mahjongg-rb
 ```
 

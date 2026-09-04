@@ -4,12 +4,15 @@ require 'gtk4'
 require 'adwaita'
 
 require_relative 'history'
+require_relative 'i18n'
 
 module Mahjongg
   # The scores for one layout, ranked fastest first. Opened from the menu it
   # shows a layout picker; opened on a win it shows the finishing time in
   # place, with the player's name editable in the row that was just added.
   class ScoreDialog
+    include I18n
+
     def initialize(history, maps, selected_layout = '', completed_entry = nil)
       @history = history
       @maps = maps
@@ -66,7 +69,7 @@ module Mahjongg
 
     def dialog
       @dialog ||= Adwaita::Dialog.new.tap do |dlg|
-        dlg.title = 'Scores'
+        dlg.title = _('Scores')
         dlg.content_width = 360
         dlg.content_height = 500
       end
@@ -91,19 +94,19 @@ module Mahjongg
       end
     end
 
-    def title_widget = @title_widget ||= Adwaita::WindowTitle.new('Game Completed 🎉', '')
+    def title_widget = @title_widget ||= Adwaita::WindowTitle.new(_('Game Completed 🎉'), '')
 
     def clear_scores_button
       @clear_scores_button ||= Gtk::Button.new.tap do |button|
         button.icon_name = 'user-trash-symbolic'
-        button.tooltip_text = 'Clear Scores…'
+        button.tooltip_text = _('Clear Scores…')
       end
     end
 
     def no_scores_page
       @no_scores_page ||= Adwaita::StatusPage.new.tap do |page|
-        page.title = 'No Scores'
-        page.description = 'Finish a game to see scores'
+        page.title = _('No Scores')
+        page.description = _('Finish a game to see scores')
         page.icon_name = 'stopwatch-symbolic'
       end
     end
@@ -116,20 +119,20 @@ module Mahjongg
     end
 
     def rank_column
-      @rank_column ||= Gtk::ColumnViewColumn.new('Rank', nil).tap do |column|
+      @rank_column ||= Gtk::ColumnViewColumn.new(_('Rank'), nil).tap do |column|
         column.fixed_width = 85
       end
     end
 
     def time_column
-      @time_column ||= Gtk::ColumnViewColumn.new('Time', nil).tap do |column|
+      @time_column ||= Gtk::ColumnViewColumn.new(_('Time'), nil).tap do |column|
         column.expand = true
         column.fixed_width = 0
       end
     end
 
     def player_column
-      @player_column ||= Gtk::ColumnViewColumn.new('Player', nil).tap do |column|
+      @player_column ||= Gtk::ColumnViewColumn.new(_('Player'), nil).tap do |column|
         column.expand = true
         column.fixed_width = 0
       end
@@ -143,7 +146,7 @@ module Mahjongg
     end
 
     def new_game_button
-      @new_game_button ||= Gtk::Button.new(label: '_New Game').tap do |button|
+      @new_game_button ||= Gtk::Button.new(label: _('_New Game')).tap do |button|
         button.action_name = 'app.new-game'
         button.can_shrink = true
         button.use_underline = true
@@ -158,7 +161,7 @@ module Mahjongg
         button.valign = :center
         button.child = Adwaita::ButtonContent.new.tap do |content|
           content.icon_name = 'application-exit-symbolic'
-          content.label = '_Quit'
+          content.label = _('_Quit')
           content.can_shrink = true
           content.use_underline = true
         end
@@ -176,7 +179,8 @@ module Mahjongg
           clear_scores_button.visible = false
           toolbar_view.reveal_bottom_bars = true
           header_stack.visible_child_name = 'title'
-          title_widget.subtitle = "Layout: #{@maps.get_map_display_name(@completed_entry.name)}"
+          title_widget.subtitle =
+            format(_('Layout: %s'), @maps.get_map_display_name(@completed_entry.name))
           dialog.focus_widget = score_view
         end
       end
@@ -409,10 +413,13 @@ module Mahjongg
       end
 
       def confirm_clear_scores
-        Adwaita::AlertDialog.new('Clear All Scores?', 'This will clear every score for every layout.')
+        Adwaita::AlertDialog.new(
+          _('Clear All Scores?'),
+          _('This will clear every score for every layout.'),
+        )
           .tap do |alert|
-            alert.add_response('cancel', '_Cancel')
-            alert.add_response('clear', 'Clear All')
+            alert.add_response('cancel', _('_Cancel'))
+            alert.add_response('clear', _('Clear All'))
             alert.set_response_appearance('clear', Adwaita::ResponseAppearance::DESTRUCTIVE)
             alert.default_response = 'cancel'
             alert.signal_connect('response') do |_alert, response|

@@ -7,11 +7,16 @@ require 'tmpdir'
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
+ENV['LANGUAGE'] = 'de'
+
 require 'mahjongg/game'
 require 'mahjongg/game_save'
 require 'mahjongg/history'
 require 'mahjongg/map'
+require 'mahjongg/menu'
 require 'mahjongg/paths'
+require 'mahjongg/pause_overlay'
+require 'mahjongg/rules_dialog'
 
 $failures = 0
 
@@ -182,6 +187,29 @@ Dir.mktmpdir do |dir|
 end
 
 game.destroy_timers
+
+puts '== translations'
+check('all 93 catalogues are compiled') do
+  Dir[File.join(Mahjongg::Paths.locale_dir, '*/LC_MESSAGES/gnome-mahjongg-rb.mo')].length == 93
+end
+check('a plain string is translated') do
+  Mahjongg::PauseOverlay.new.title_label.label == 'Pausiert'
+end
+check('a dialog title is translated') do
+  Mahjongg::RulesDialog.new.dialog.title == 'Spielregeln'
+end
+check('a string with a context is translated') do
+  Mahjongg::Menu.p_('mahjongg map name', 'Turtle') == 'Schildkröte'
+end
+check('layout display names come back translated') do
+  maps.get_map_display_name('easy') == 'Schildkröte'
+end
+check('a format string keeps its placeholder') do
+  Mahjongg::Menu._('Moves Left: %2u').include?('%2u')
+end
+check('an untranslated context is not confused with a translated one') do
+  Mahjongg::Menu.p_('background color', 'Light') == 'Hell'
+end
 
 puts($failures.zero? ? "\nall checks passed" : "\n#{$failures} check(s) failed")
 exit($failures.zero? ? 0 : 1)

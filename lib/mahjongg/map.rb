@@ -2,6 +2,8 @@
 
 require 'rexml/document'
 
+require_relative 'i18n'
+
 module Mahjongg
   # A tile position. Coordinates are in half-tiles: a tile is 2x2 units, so
   # neighbouring tiles on the same layer differ by 2 in x or y.
@@ -114,6 +116,7 @@ module Mahjongg
   # The layout catalogue, parsed from data/maps/mahjongg.map.
   class Maps
     include Enumerable
+    include I18n
 
     def initialize
       @maps = []
@@ -154,9 +157,15 @@ module Mahjongg
     end
 
     # Scores are filed under the layout's stable score name; the menus and the
-    # score dialog show the display name instead.
+    # score dialog show the translated display name instead.
     def get_map_display_name(score_name)
-      @maps.find { |map| map.score_name == score_name }&.name || score_name
+      @maps.find { |map| map.score_name == score_name }.then do |map|
+        if map.nil?
+          score_name
+        else
+          p_('mahjongg map name', map.name)
+        end
+      end
     end
 
     private

@@ -1,0 +1,14 @@
+# List of source files containing translatable strings.
+# Please keep this file in alphabetical order.
+data/org.gnome.Mahjongg.Rb.desktop.in
+data/org.gnome.Mahjongg.Rb.metainfo.xml.in
+data/schemas/org.gnome.Mahjongg.Rb.gschema.xml
+lib/mahjongg/about_dialog.rb
+lib/mahjongg/application.rb
+lib/mahjongg/map.rb
+lib/mahjongg/menu.rb
+lib/mahjongg/pause_overlay.rb
+lib/mahjongg/rules_dialog.rb
+lib/mahjongg/score_dialog.rb
+lib/mahjongg/shortcuts_dialog.rb
+lib/mahjongg/window.rb

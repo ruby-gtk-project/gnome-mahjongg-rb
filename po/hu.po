@@ -1,0 +1,512 @@
+# Hungarian translation for gnome-mahjongg.
+# Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2019, 2022, 2023, 2024, 2025, 2026 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-mahjongg package.
+#
+# Szabolcs Ban <shooby at gnome dot hu>, 1999, 2000, 2001.
+# Gergely Nagy <greg at gnome dot hu>, 2001.
+# Emese Kovacs <emese at gnome dot hu>, 2002.
+# Andras Timar <timar at gnome dot hu>, 2002, 2003.
+# Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
+# Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2013, 2014, 2015, 2018, 2019, 2022, 2023, 2024, 2025, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-mahjongg master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-mahjongg/issues/\n"
+"POT-Creation-Date: 2026-05-01 16:45+0000\n"
+"PO-Revision-Date: 2026-09-01 21:09+0200\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.12.3\n"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:2
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:9 src/gnome-mahjongg.vala:438
+msgid "Mahjongg"
+msgstr "Mahjongg"
+
+#: data/org.gnome.Mahjongg.desktop.in.in:3
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:10
+msgid "Match tiles and clear the board"
+msgstr "Párosítsa a köveket és tisztítsa meg a táblát"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Mahjongg.desktop.in.in:5
+msgid "game;strategy;puzzle;board;"
+msgstr "játék;stratégia;kirakó;feladvány;logikai;tábla;"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:31
+msgid "Width of the window in pixels"
+msgstr "Az ablak szélessége képpontokban"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:35
+msgid "Height of the window in pixels"
+msgstr "Az ablak magassága képpontokban"
+
+#: data/org.gnome.Mahjongg.gschema.xml.in:39
+msgid "true if the window is maximized"
+msgstr "igaz, ha az ablak teljes méretű"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:12
+msgid ""
+"Single-player tile-matching game, commonly known as Mahjong solitaire. Tiles "
+"are stacked on the board at the start of the game. The goal is to remove all "
+"the tiles in as little time as possible. Select two matching tiles and they "
+"will disappear from the board, but you can only select a tile if there is an "
+"empty space to its left or right at the same level. Be careful: tiles that "
+"look alike may actually be slightly different."
+msgstr ""
+"Egyjátékos kőpárosító játék, közismert nevén Mahjong pasziánsz. A kövek a "
+"táblára vannak helyezve a játék kezdetén. A cél az összes kő eltávolítása a "
+"lehető leggyorsabban. Válasszon ki két egyező követ, és azok eltűnnek a "
+"tábláról, de egy kő csak akkor választható ki, ha ugyanazon a szinten jobbra "
+"vagy balra van mellette egy üres hely. Legyen óvatos: a hasonlóan kinéző "
+"kövek valójában kissé eltérőek lehetnek."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:21
+msgid ""
+"You can choose from a variety of starting layouts, some easy and some "
+"difficult. If you get stuck, you can ask for a hint, but this adds a large "
+"time penalty."
+msgstr ""
+"Többféle kezdő elrendezés közül választhat, némelyik könnyű, némelyik nehéz. "
+"Ha elakad, kérhet tippet, de ez nagy időbüntetéssel jár."
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:34
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:42
+msgid "Mahjongg in Light Style"
+msgstr "Mahjongg világos stílusban"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:38
+msgid "Mahjongg in Dark Style"
+msgstr "Mahjongg sötét stílusban"
+
+#: data/org.gnome.Mahjongg.metainfo.xml.in.in:171
+#| msgid "Mahjongg"
+msgid "The Mahjongg Team"
+msgstr "A Mahjongg csapata"
+
+#: data/ui/menu.ui:8 data/ui/score-dialog.ui:104 src/gnome-mahjongg.vala:180
+msgid "_New Game"
+msgstr "Ú_j játék"
+
+#: data/ui/menu.ui:12 data/ui/pause-overlay.ui:49
+msgid "_Restart Game"
+msgstr "Játék új_raindítása"
+
+#: data/ui/menu.ui:16
+msgid "_Scores"
+msgstr "_Pontszámok"
+
+#: data/ui/menu.ui:22
+msgid "_Layout"
+msgstr "_Elrendezés"
+
+#: data/ui/menu.ui:25
+msgctxt "mahjongg map name"
+msgid "Turtle"
+msgstr "Teknős"
+
+#: data/ui/menu.ui:28
+msgctxt "mahjongg map name"
+msgid "The Ziggurat"
+msgstr "Zikkurat"
+
+#: data/ui/menu.ui:31
+msgctxt "mahjongg map name"
+msgid "Four Bridges"
+msgstr "Négy híd"
+
+#: data/ui/menu.ui:34
+msgctxt "mahjongg map name"
+msgid "Cloud"
+msgstr "Felhő"
+
+#: data/ui/menu.ui:37
+msgctxt "mahjongg map name"
+msgid "Tic-Tac-Toe"
+msgstr "Tic-Tac-Toe"
+
+#: data/ui/menu.ui:40
+msgctxt "mahjongg map name"
+msgid "Red Dragon"
+msgstr "Vörös sárkány"
+
+#: data/ui/menu.ui:43
+msgctxt "mahjongg map name"
+msgid "Overpass"
+msgstr "Felüljáró"
+
+#: data/ui/menu.ui:46
+msgctxt "mahjongg map name"
+msgid "Pyramid's Walls"
+msgstr "Piramisfal"
+
+#: data/ui/menu.ui:49
+msgctxt "mahjongg map name"
+msgid "Confounding Cross"
+msgstr "Zavarba ejtő kereszt"
+
+#: data/ui/menu.ui:52
+msgctxt "mahjongg map name"
+msgid "Taipei"
+msgstr "Taipei"
+
+#: data/ui/menu.ui:57
+msgid "Layout _Progression"
+msgstr "Elrendezés _előrehaladása"
+
+#: data/ui/menu.ui:60
+msgctxt "layout progression"
+msgid "No Progression"
+msgstr "Nincs előrehaladás"
+
+#: data/ui/menu.ui:65
+msgctxt "layout progression"
+msgid "Sequential"
+msgstr "Sorrendben"
+
+#: data/ui/menu.ui:70
+msgctxt "layout progression"
+msgid "Random"
+msgstr "Véletlen"
+
+#: data/ui/menu.ui:77
+msgid "_Appearance"
+msgstr "_Megjelenés"
+
+#: data/ui/menu.ui:79
+msgid "Background"
+msgstr "Háttér"
+
+#: data/ui/menu.ui:81
+msgctxt "background color"
+msgid "Follow System"
+msgstr "Rendszer követése"
+
+#: data/ui/menu.ui:86
+msgctxt "background color"
+msgid "Light"
+msgstr "Világos"
+
+#: data/ui/menu.ui:91
+msgctxt "background color"
+msgid "Dark"
+msgstr "Sötét"
+
+#: data/ui/menu.ui:97
+msgid "Theme"
+msgstr "Téma"
+
+#: data/ui/menu.ui:99
+msgctxt "mahjongg theme name"
+msgid "Postmodern"
+msgstr "Posztmodern"
+
+#: data/ui/menu.ui:104
+msgctxt "mahjongg theme name"
+msgid "Smooth"
+msgstr "Sima"
+
+#: data/ui/menu.ui:109
+msgctxt "mahjongg theme name"
+msgid "Educational"
+msgstr "Oktatási"
+
+#: data/ui/menu.ui:118
+msgid "Game R_ules"
+msgstr "Játék_szabályok"
+
+#: data/ui/menu.ui:122
+msgid "_Keyboard Shortcuts"
+msgstr "_Gyorsbillentyűk"
+
+#: data/ui/menu.ui:126
+msgid "_About Mahjongg"
+msgstr "A Mahjongg _névjegye"
+
+#: data/ui/pause-overlay.ui:24
+msgid "Paused"
+msgstr "Szüneteltetve"
+
+#: data/ui/pause-overlay.ui:38
+#| msgid "Resume Game"
+msgid "Re_sume Game"
+msgstr "Játék _folytatása"
+
+#: data/ui/pause-overlay.ui:60 data/ui/score-dialog.ui:119
+#: src/gnome-mahjongg.vala:178
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: data/ui/rules-dialog.ui:7
+msgid "Game Rules"
+msgstr "Játékszabályok"
+
+#: data/ui/rules-dialog.ui:14
+msgctxt "game rules"
+msgid "Clear the board by matching pairs of identical tiles"
+msgstr "Tisztítsa meg a táblát az azonos kövek párosításával"
+
+#: data/ui/rules-dialog.ui:22
+msgctxt "game rules"
+msgid "Only uncovered tiles with a free long edge can be selected"
+msgstr "Csak a szabad hosszú éllel rendelkező, fedetlen kövek választhatók ki"
+
+#: data/ui/rules-dialog.ui:32
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "A körök a teljesítési idő alapján kerülnek pontozásra"
+
+#: data/ui/rules-dialog.ui:42
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Szüneteltetheti a játékot"
+
+#: data/ui/rules-dialog.ui:43
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "A köveken lévő képek rejtve lesznek"
+
+#: data/ui/rules-dialog.ui:53
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Visszavonhat vagy megismételhet egy lépést"
+
+#: data/ui/rules-dialog.ui:54
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Nincs időbüntetés hozzáadva"
+
+#: data/ui/rules-dialog.ui:64
+msgctxt "game rules"
+msgid "You can use hints to reveal matching tiles"
+msgstr "Használhat tippeket a megegyező kövek felfedéséhez"
+
+#: data/ui/rules-dialog.ui:65
+msgctxt "game rules"
+msgid "Adds a 30-second time penalty"
+msgstr "30 másodperces időbüntetést ad hozzá"
+
+#: data/ui/rules-dialog.ui:75
+msgctxt "game rules"
+msgid "You can shuffle tiles when no moves are left"
+msgstr "Megkeverheti a köveket, ha már nincs több lépés"
+
+#: data/ui/rules-dialog.ui:76
+msgctxt "game rules"
+msgid "Adds a 60-second time penalty"
+msgstr "60 másodperces időbüntetést ad hozzá"
+
+#: data/ui/score-dialog.ui:8
+msgid "Scores"
+msgstr "Pontszámok"
+
+#: data/ui/score-dialog.ui:31
+msgid "Game Completed 🎉"
+msgstr "Játék befejezve 🎉"
+
+#: data/ui/score-dialog.ui:41
+#| msgid "Clear All Scores?"
+msgid "Clear Scores…"
+msgstr "Pontszámok törlése…"
+
+#: data/ui/score-dialog.ui:53
+msgid "No Scores"
+msgstr "Nincsenek pontszámok"
+
+#: data/ui/score-dialog.ui:54
+msgid "Finish a game to see scores"
+msgstr "Fejezzen be egy játékot a pontszámok megtekintéséhez"
+
+#: data/ui/score-dialog.ui:71
+msgid "Rank"
+msgstr "Rang"
+
+#: data/ui/score-dialog.ui:77
+msgid "Time"
+msgstr "Idő"
+
+#: data/ui/score-dialog.ui:84
+msgid "Player"
+msgstr "Játékos"
+
+#: data/ui/shortcuts-dialog.ui:8
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Játék"
+
+#: data/ui/shortcuts-dialog.ui:12
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Új játék"
+
+#: data/ui/shortcuts-dialog.ui:18
+msgctxt "shortcut window"
+msgid "Restart Game"
+msgstr "Játék újraindítása"
+
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Játék szüneteltetése"
+
+#: data/ui/shortcuts-dialog.ui:30
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: data/ui/shortcuts-dialog.ui:36
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Újra"
+
+#: data/ui/shortcuts-dialog.ui:42
+msgctxt "shortcut window"
+msgid "Show Hint"
+msgstr "Tipp megjelenítése"
+
+#: data/ui/shortcuts-dialog.ui:49
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Általános"
+
+#: data/ui/shortcuts-dialog.ui:53
+msgctxt "shortcut window"
+msgid "Show Game Rules"
+msgstr "Játékszabályok megjelenítése"
+
+#: data/ui/shortcuts-dialog.ui:59
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Főmenü megjelenítése"
+
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Gyorsbillentyűk megjelenítése"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Ablak bezárása"
+
+#: data/ui/shortcuts-dialog.ui:77
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Kilépés"
+
+#: data/ui/window.ui:29
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: data/ui/window.ui:36
+msgid "Redo"
+msgstr "Újra"
+
+#: data/ui/window.ui:43
+msgid "Main Menu"
+msgstr "Főmenü"
+
+#: data/ui/window.ui:56
+msgid "Show Hint"
+msgstr "Tipp megjelenítése"
+
+#: src/gnome-mahjongg.vala:13
+msgid "Print release version and exit"
+msgstr "Kiadási verzió kiírása és kilépés"
+
+#: src/gnome-mahjongg.vala:171
+msgid "No Moves Left"
+msgstr "Nincsenek hátralévő lépések"
+
+#: src/gnome-mahjongg.vala:173
+msgid ""
+"You can undo your moves and try to find a solution, or reshuffle the "
+"remaining tiles."
+msgstr ""
+"Visszavonhatja a lépéseit, és megpróbálhat megoldást találni, vagy "
+"újrakeverheti a megmaradt köveket."
+
+#: src/gnome-mahjongg.vala:174
+msgid ""
+"You can undo your moves and try to find a solution, or start a new game."
+msgstr ""
+"Visszavonhatja a lépéseit, és megpróbálhat megoldást találni, vagy új "
+"játékot kezdhet."
+
+#: src/gnome-mahjongg.vala:183
+msgid "_Reshuffle"
+msgstr "Új_rakeverés"
+
+#: src/gnome-mahjongg.vala:185
+msgid "_Continue"
+msgstr "_Folytatás"
+
+#: src/gnome-mahjongg.vala:232
+msgid "Change Layout?"
+msgstr "Megváltoztatja az elrendezést?"
+
+#: src/gnome-mahjongg.vala:233
+msgid "This will end your current game."
+msgstr "Ezzel a jelenlegi játéka befejeződik."
+
+#: src/gnome-mahjongg.vala:237 src/score-dialog.vala:328
+msgid "_Cancel"
+msgstr "_Mégse"
+
+#: src/gnome-mahjongg.vala:238
+msgid "Change _Layout"
+msgstr "_Elrendezés megváltoztatása"
+
+#: src/gnome-mahjongg.vala:335
+msgid "translator-credits"
+msgstr ""
+"Bán Szabolcs <shooby at gnome dot hu>\n"
+"Dvornik László <dvornik at gnome dot hu>\n"
+"Kelemen Gábor <kelemeng at gnome dot hu>\n"
+"Kovács Emese <emese at gnome dot hu>\n"
+"Meskó Balázs <mesko dot balazs at fsf dot hu>\n"
+"Nagy Gergely <greg at gnome dot hu>\n"
+"Tímár András <timar at gnome dot hu>\n"
+"Úr Balázs <ur dot balazs at fsf dot hu>\n"
+"Varga Szabolcs <shirokuma at shirokuma dot hu>"
+
+#: src/gnome-mahjongg.vala:337
+msgid "Layouts by"
+msgstr "Elrendezések:"
+
+#: src/score-dialog.vala:62
+#, c-format
+msgid "Layout: %s"
+msgstr "Elrendezés: %s"
+
+#: src/score-dialog.vala:323
+msgid "Clear All Scores?"
+msgstr "Törli az összes pontszámot?"
+
+#: src/score-dialog.vala:324
+msgid "This will clear every score for every layout."
+msgstr "Ez törli az összes pontszámot minden elrendezésnél."
+
+#: src/score-dialog.vala:329
+msgid "Clear All"
+msgstr "Összes törlése"
+
+#: src/window.vala:178
+#, c-format
+msgid "Moves Left: %2u"
+msgstr "Hátralévő lépések: %2u"
+
+#: src/window.vala:184
+msgid "Resume Game"
+msgstr "Játék folytatása"
+
+#: src/window.vala:196
+msgid "Pause Game"
+msgstr "Játék szüneteltetése"

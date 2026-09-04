@@ -2,6 +2,7 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
 require_relative 'version'
 
 module Mahjongg
@@ -9,6 +10,8 @@ module Mahjongg
   # metainfo out of the GResource bundle. The Ruby bindings expose no such
   # constructor, so the same fields are set by hand.
   class AboutDialog
+    include I18n
+
     DEVELOPERS = [
       'Francisco Bustamante',
       'Max Watson',
@@ -56,24 +59,26 @@ module Mahjongg
 
     def build
       dialog.tap do |about|
-        about.add_credit_section('Layouts by', LAYOUT_AUTHORS)
+        about.add_credit_section(_('Layouts by'), LAYOUT_AUTHORS)
       end
     end
 
     def dialog
       @dialog ||= Adwaita::AboutDialog.new.tap do |about|
-        about.application_name = 'Mahjongg'
+        about.application_name = _('Mahjongg')
         about.application_icon = Application::APP_ID
         about.developer_name = 'The Mahjongg Team'
         about.version = VERSION
         about.copyright = COPYRIGHT
         about.license_type = Gtk::License::GPL_2_0
-        about.comments = 'Match tiles and clear the board'
+        about.comments = _('Match tiles and clear the board')
         about.website = 'https://apps.gnome.org/Mahjongg/'
         about.issue_url = 'https://gitlab.gnome.org/GNOME/gnome-mahjongg/issues'
         about.developers = DEVELOPERS
         about.artists = ARTISTS
         about.documenters = DOCUMENTERS
+        # Each catalogue fills this in with its own translators.
+        about.translator_credits = _('translator-credits')
       end
     end
   end

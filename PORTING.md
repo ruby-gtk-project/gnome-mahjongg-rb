@@ -78,24 +78,33 @@ the tiles are, so the sheet cannot be rendered before it; `resize_theme`
 queues a second frame once the sheet exists. `draw` therefore always measures
 and re-renders, and only paints if there is something to paint.
 
-## What is not ported
+**Translations come from upstream's own catalogues.** All 93 `po/*.po` files
+are reused unchanged, which means every string in this port has to match its
+msgid exactly — including the `msgctxt` disambiguators, so `p_('background
+color', 'Light')` and `p_('mahjongg map name', 'Turtle')` are spelled the way
+the catalogues expect. `rake locale` compiles them with the gettext gem's
+`rmsgfmt`; `rake metadata` merges the same catalogues into the desktop entry
+and the AppStream metainfo with GNU `msgfmt --desktop` / `--xml`, which is why
+those two files are generated from `.in` templates rather than tracked.
 
-**Translations.** Upstream carries ~80 message catalogues. The strings here
-are the English originals, untranslated, and there is no gettext wiring. That
-is the one piece of upstream parity deliberately left out; everything else —
-every window, dialog, menu item, shortcut, preference, action, empty state and
-error state — is present.
+The text domain binds with `output_charset: 'UTF-8'`, because GTK and Pango
+want UTF-8 whatever the locale's charset is; without it every umlaut in a
+German run arrives as `?`.
 
 ## Verifying it
 
 `rake test` runs two scripts:
 
-- `test/logic_test.rb` — 51 checks with no widgets: layout parsing, board
+- `test/logic_test.rb` — 57 checks with no widgets: layout parsing, board
   generation and reproducibility, matching, undo/redo, hints, the save-file
-  round trip, the score file.
+  round trip, the score file, and the translations (that all 93 catalogues
+  compile, and that a German run really does say "Pausiert").
 - `test/ui_test.rb` — 80 checks driving the real window offscreen: selecting
   and matching tiles by clicking their centres, shaking a blocked tile,
   undo/redo, the hint penalty, pausing and resuming, all three tile sets, the
   dark background, changing layout (both answers to the confirmation), every
   dialog, the no-moves-left state, and playing a board out to a win and a
-  recorded score. It writes screenshots to `tmp/shots`.
+  recorded score. It writes screenshots to `tmp/shots`. It pins the locale to
+  C so its assertions can compare against the English originals;
+  `MAHJONGG_RB_TEST_LANGUAGE=de rake test` runs it translated, for looking at
+  rather than asserting on.

@@ -7,6 +7,7 @@ require_relative 'about_dialog'
 require_relative 'game'
 require_relative 'game_save'
 require_relative 'history'
+require_relative 'i18n'
 require_relative 'map'
 require_relative 'paths'
 require_relative 'rules_dialog'
@@ -19,6 +20,8 @@ module Mahjongg
   # Owns the game, the layouts, the save file and the score file, and exposes
   # all of it to the window through GActions.
   class Application
+    include I18n
+
     APP_ID = 'org.gnome.Mahjongg.Rb'
 
     ACCELS = {
@@ -130,6 +133,9 @@ module Mahjongg
     private
 
       def start_up
+        # The window manager and the desktop shell read this, so it has to be
+        # set before any window exists.
+        GLib.application_name = _('Mahjongg')
         add_actions
         ACCELS.each { |name, accels| app.set_accels_for_action(name, accels) }
         load_style
@@ -241,9 +247,9 @@ module Mahjongg
       end
 
       def confirm_layout_change(action, layout)
-        alert('Change Layout?', 'This will end your current game.').tap do |dialog|
-          dialog.add_response('cancel', '_Cancel')
-          dialog.add_response('change_layout', 'Change _Layout')
+        alert(_('Change Layout?'), _('This will end your current game.')).tap do |dialog|
+          dialog.add_response('cancel', _('_Cancel'))
+          dialog.add_response('change_layout', _('Change _Layout'))
           dialog.set_response_appearance('change_layout', Adwaita::ResponseAppearance::DESTRUCTIVE)
           dialog.default_response = 'cancel'
           dialog.signal_connect('response') do |_dialog, response|
@@ -325,19 +331,19 @@ module Mahjongg
 
       def offer_way_out
         can_shuffle = @game.can_shuffle?
-        body = 'You can undo your moves and try to find a solution, or start a new game.'
+        body = _('You can undo your moves and try to find a solution, or start a new game.')
         if can_shuffle
-          body = 'You can undo your moves and try to find a solution, or reshuffle the remaining tiles.'
+          body = _('You can undo your moves and try to find a solution, or reshuffle the remaining tiles.')
         end
 
-        alert('No Moves Left', body).tap do |dialog|
-          dialog.add_response('quit', '_Quit')
+        alert(_('No Moves Left'), body).tap do |dialog|
+          dialog.add_response('quit', _('_Quit'))
           dialog.set_response_appearance('quit', Adwaita::ResponseAppearance::DESTRUCTIVE)
-          dialog.add_response('new_game', '_New Game')
+          dialog.add_response('new_game', _('_New Game'))
           if can_shuffle
-            dialog.add_response('reshuffle', '_Reshuffle')
+            dialog.add_response('reshuffle', _('_Reshuffle'))
           end
-          dialog.add_response('continue', '_Continue')
+          dialog.add_response('continue', _('_Continue'))
           dialog.default_response = 'continue'
           dialog.signal_connect('response') { |_dialog, response| no_moves_response(response) }
           dialog.present(@main_window.window)

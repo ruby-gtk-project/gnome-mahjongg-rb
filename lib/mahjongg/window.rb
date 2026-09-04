@@ -4,6 +4,7 @@ require 'gtk4'
 require 'adwaita'
 
 require_relative 'game_view'
+require_relative 'i18n'
 require_relative 'menu'
 require_relative 'pause_overlay'
 
@@ -11,6 +12,8 @@ module Mahjongg
   # The game window: header bar, clock, and a stack of two board views that
   # the layouts slide between.
   class Window
+    include I18n
+
     COMPACT_HEIGHT = 380
 
     attr_reader :game_view
@@ -132,7 +135,7 @@ module Mahjongg
 
     def window
       @window ||= Adwaita::ApplicationWindow.new(@application).tap do |win|
-        win.title = 'Mahjongg'
+        win.title = _('Mahjongg')
         win.icon_name = Application::APP_ID
         win.set_size_request(360, 294)
       end
@@ -170,7 +173,7 @@ module Mahjongg
       @undo_button ||= Gtk::Button.new.tap do |button|
         button.icon_name = 'edit-undo-symbolic'
         button.action_name = 'app.undo'
-        button.tooltip_text = 'Undo'
+        button.tooltip_text = _('Undo')
       end
     end
 
@@ -178,7 +181,7 @@ module Mahjongg
       @redo_button ||= Gtk::Button.new.tap do |button|
         button.icon_name = 'edit-redo-symbolic'
         button.action_name = 'app.redo'
-        button.tooltip_text = 'Redo'
+        button.tooltip_text = _('Redo')
       end
     end
 
@@ -186,7 +189,7 @@ module Mahjongg
       @menu_button ||= Gtk::MenuButton.new.tap do |button|
         button.icon_name = 'open-menu-symbolic'
         button.primary = true
-        button.tooltip_text = 'Main Menu'
+        button.tooltip_text = _('Main Menu')
       end
     end
 
@@ -194,7 +197,7 @@ module Mahjongg
       @pause_button ||= Gtk::Button.new.tap do |button|
         button.icon_name = 'media-playback-pause-symbolic'
         button.action_name = 'app.pause'
-        button.tooltip_text = 'Pause Game'
+        button.tooltip_text = _('Pause Game')
       end
     end
 
@@ -202,7 +205,7 @@ module Mahjongg
       @hint_button ||= Gtk::Button.new.tap do |button|
         button.icon_name = 'dialog-information-symbolic'
         button.action_name = 'app.hint'
-        button.tooltip_text = 'Show Hint'
+        button.tooltip_text = _('Show Hint')
       end
     end
 
@@ -257,7 +260,7 @@ module Mahjongg
       end
 
       def moved
-        title_widget.subtitle = format('Moves Left: %2u', @game_view.game.moves_left)
+        title_widget.subtitle = format(_('Moves Left: %2u'), @game_view.game.moves_left)
       end
 
       def paused_changed
@@ -270,7 +273,7 @@ module Mahjongg
 
       def show_paused
         pause_button.icon_name = 'media-playback-start-symbolic'
-        pause_button.tooltip_text = 'Resume Game'
+        pause_button.tooltip_text = _('Resume Game')
         stack.add_css_class('dim-label')
 
         if window.visible_dialog.nil? && !menu_button.active? && !@pause_overlay_shown
@@ -283,7 +286,7 @@ module Mahjongg
 
       def show_running
         pause_button.icon_name = 'media-playback-pause-symbolic'
-        pause_button.tooltip_text = 'Pause Game'
+        pause_button.tooltip_text = _('Pause Game')
         stack.remove_css_class('dim-label')
 
         if @pause_overlay_shown

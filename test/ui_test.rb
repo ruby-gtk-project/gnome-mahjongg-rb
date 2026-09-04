@@ -12,6 +12,13 @@ ENV['XDG_DATA_HOME'] = Dir.mktmpdir
 # There is no session bus here, so the dconf backend accepts writes and then
 # quietly rolls them back when its D-Bus call fails.
 ENV['GSETTINGS_BACKEND'] = 'memory'
+# The checks below compare against the English originals, so pin the locale
+# rather than inherit whatever the machine running the tests uses.
+# test/logic_test.rb is the one that checks the catalogues.
+# Override with MAHJONGG_RB_TEST_LANGUAGE=de to eyeball a translated run; the
+# string checks will fail, the screenshots are the point.
+ENV['LANGUAGE'] = ENV.fetch('MAHJONGG_RB_TEST_LANGUAGE', 'C')
+ENV['LC_ALL'] = ENV['LANGUAGE']
 
 require 'mahjongg'
 require_relative 'gtk_driver'

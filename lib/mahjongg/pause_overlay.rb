@@ -2,10 +2,14 @@
 
 require 'gtk4'
 
+require_relative 'i18n'
+
 module Mahjongg
   # The card that slides up over a paused board. A restored game gets Restart
   # rather than Quit, since the player has just come back to it.
   class PauseOverlay
+    include I18n
+
     def build
       container.tap do |box|
         box.append(revealer)
@@ -72,7 +76,7 @@ module Mahjongg
     end
 
     def title_label
-      @title_label ||= Gtk::Label.new('Paused').tap do |label|
+      @title_label ||= Gtk::Label.new(_('Paused')).tap do |label|
         label.add_css_class('title-1')
       end
     end
@@ -84,7 +88,7 @@ module Mahjongg
     end
 
     def resume_button
-      @resume_button ||= Gtk::Button.new(label: 'Re_sume Game').tap do |button|
+      @resume_button ||= Gtk::Button.new(label: _('Re_sume Game')).tap do |button|
         button.action_name = 'app.pause'
         button.use_underline = true
         button.add_css_class('pill')
@@ -93,7 +97,7 @@ module Mahjongg
     end
 
     def restart_button
-      @restart_button ||= Gtk::Button.new(label: '_Restart Game').tap do |button|
+      @restart_button ||= Gtk::Button.new(label: _('_Restart Game')).tap do |button|
         button.action_name = 'app.restart-game'
         button.use_underline = true
         button.add_css_class('pill')
@@ -101,7 +105,7 @@ module Mahjongg
     end
 
     def quit_button
-      @quit_button ||= Gtk::Button.new(label: '_Quit').tap do |button|
+      @quit_button ||= Gtk::Button.new(label: _('_Quit')).tap do |button|
         button.action_name = 'app.quit'
         button.use_underline = true
         button.add_css_class('pill')
