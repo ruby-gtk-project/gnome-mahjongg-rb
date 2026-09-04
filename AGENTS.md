@@ -1,8 +1,8 @@
 # gnome-mahjongg — Ruby port
 
-This branch is an empty `ruby` orphan branch. The upstream code (the original
-implementation of gnome-mahjongg) lives on the fork's other branches; this branch is
-where the Ruby GTK4 / Libadwaita port is written.
+This branch holds a Ruby GTK4 / Libadwaita port of GNOME Mahjongg 49.1.1. The
+Vala original is on the fork's `main` branch; `PORTING.md` maps one onto the
+other and records where the port deliberately differs.
 
 ## Skills — use them
 
@@ -18,10 +18,21 @@ Two skills are installed in `.claude/skills/`. They are not optional reading.
   GTK change works. `ruby -c` and a successful `require` prove nothing about a
   UI.
 
+`FINDINGS.md` lists the ruby-gnome defects this port ran into, including two
+that bite the testing harness itself.
+
 ## Setup
 
-`direnv allow` (or `nix develop`) gets Ruby, GTK4, Libadwaita and the
-introspection typelibs. Then `bundle install`.
+`direnv allow` (or `nix develop`) gets Ruby, GTK4, Libadwaita, librsvg and the
+introspection typelibs. Gems are built by `bundlerEnv` from `gemset.nix`; after
+touching the `Gemfile`, run `nix run nixpkgs#bundix -- -l` to regenerate it (the
+`.envrc` does this for you when `Gemfile.lock` moves ahead).
+
+```sh
+rake            # schema, tests, lint
+rake test       # 51 logic checks + 80 UI checks, no display needed
+./bin/gnome-mahjongg-rb
+```
 
 ## Style
 

@@ -1,0 +1,25 @@
+[Icon Theme]
+Name=Hicolor
+Comment=Icons shipped with gnome-mahjongg-rb
+Directories=scalable/actions,scalable/apps,symbolic/apps
+
+[scalable/actions]
+MinSize=16
+Size=16
+MaxSize=512
+Context=Actions
+Type=Scalable
+
+[scalable/apps]
+MinSize=16
+Size=128
+MaxSize=512
+Context=Applications
+Type=Scalable
+
+[symbolic/apps]
+MinSize=16
+Size=16
+MaxSize=512
+Context=Applications
+Type=Scalable

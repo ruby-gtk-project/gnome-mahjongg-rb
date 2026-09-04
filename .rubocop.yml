@@ -18,6 +18,8 @@ AllCops:
     - .direnv/**/*
     - examples/**/*
     - result
+    - result/**/*
+    - result-*/**/*
     - vendor/**/*
     - tmp/**/*
     - node_modules/**/*

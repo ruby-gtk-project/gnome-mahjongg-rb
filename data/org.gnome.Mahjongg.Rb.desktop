@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Mahjongg
+GenericName=Mahjongg
+Comment=Disassemble a pile of tiles by removing matching pairs
+Keywords=game;strategy;puzzle;board;
+Exec=gnome-mahjongg-rb
+Icon=org.gnome.Mahjongg.Rb
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Game;LogicGame;
+DBusActivatable=true
