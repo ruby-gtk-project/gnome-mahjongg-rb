@@ -61,6 +61,15 @@ module Mahjongg
 
     def build
       app.tap do |application|
+        application.add_main_option(
+          'version',
+          'v'.ord,
+          GLib::OptionFlags::NONE,
+          GLib::OptionArg::NONE,
+          _('Print release version and exit'),
+          nil,
+        )
+        application.signal_connect('handle-local-options') { |_app, options| handle_options(options) }
         application.signal_connect('startup') { start_up }
         application.signal_connect('activate') { activate }
         application.signal_connect('shutdown') { shut_down }
@@ -131,6 +140,18 @@ module Mahjongg
     end
 
     private
+
+      # Returning a non-negative value stops here with that exit status;
+      # -1 carries on and activates.
+      def handle_options(options)
+        if options.contains?('version')
+          # Deliberately untranslated, so it stays easy to parse.
+          warn "gnome-mahjongg-rb #{VERSION}"
+          0
+        else
+          -1
+        end
+      end
 
       def start_up
         # The window manager and the desktop shell read this, so it has to be

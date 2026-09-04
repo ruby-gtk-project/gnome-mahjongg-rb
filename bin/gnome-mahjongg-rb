@@ -5,10 +5,8 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'mahjongg'
 
-if ARGV.include?('--version') || ARGV.include?('-v')
-  # Deliberately untranslated, so it stays easy to parse.
-  warn "gnome-mahjongg-rb #{Mahjongg::VERSION}"
-  exit
-end
-
-Mahjongg::Application.new.build.run(ARGV)
+# GApplication parses the command line itself, so --version and --help are
+# handled inside the application rather than here. It wants a full argv,
+# program name included: ruby-gnome passes the array through untouched, and
+# GLib drops the first element as argv[0].
+Mahjongg::Application.new.build.run([$PROGRAM_NAME, *ARGV])

@@ -3,6 +3,7 @@
 # Plain checks on the parts that need no widgets: layout parsing, board
 # generation, undo/redo, save/restore and the score file.
 
+require 'English'
 require 'tmpdir'
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
@@ -15,6 +16,7 @@ require 'mahjongg/history'
 require 'mahjongg/map'
 require 'mahjongg/menu'
 require 'mahjongg/paths'
+require 'mahjongg/version'
 require 'mahjongg/pause_overlay'
 require 'mahjongg/rules_dialog'
 
@@ -209,6 +211,28 @@ check('a format string keeps its placeholder') do
 end
 check('an untranslated context is not confused with a translated one') do
   Mahjongg::Menu.p_('background color', 'Light') == 'Hell'
+end
+
+puts '== command line'
+check('--version prints the release and exits 0') do
+  IO.popen(
+    { 'GSETTINGS_SCHEMA_DIR' => File.expand_path('../data/schemas', __dir__) },
+    [File.expand_path('../bin/gnome-mahjongg-rb', __dir__), '--version'],
+    err: %i[child out],
+  ) { |io| io.read }.strip == "gnome-mahjongg-rb #{Mahjongg::VERSION}" && $CHILD_STATUS.success?
+end
+check('--help lists the version option, translated') do
+  IO.popen(
+    { 'GSETTINGS_SCHEMA_DIR' => File.expand_path('../data/schemas', __dir__) },
+    [File.expand_path('../bin/gnome-mahjongg-rb', __dir__), '--help'],
+    err: %i[child out],
+  ) { |io| io.read }.then do |help|
+    # The child inherits LANGUAGE=de from this script, so the description
+    # comes back in German — which is the whole point of registering it as a
+    # GApplication option rather than parsing ARGV by hand.
+    help.include?('-v, --version') &&
+      help.include?(Mahjongg::Menu._('Print release version and exit'))
+  end
 end
 
 puts($failures.zero? ? "\nall checks passed" : "\n#{$failures} check(s) failed")

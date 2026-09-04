@@ -91,14 +91,20 @@ The text domain binds with `output_charset: 'UTF-8'`, because GTK and Pango
 want UTF-8 whatever the locale's charset is; without it every umlaut in a
 German run arrives as `?`.
 
+**The command line is GApplication's.** `--version` is registered with
+`add_main_option` and answered in `handle-local-options`, as upstream does, so
+it turns up in `--help` translated rather than being pulled out of `ARGV`
+by hand.
+
 ## Verifying it
 
 `rake test` runs two scripts:
 
-- `test/logic_test.rb` — 57 checks with no widgets: layout parsing, board
+- `test/logic_test.rb` — 59 checks with no widgets: layout parsing, board
   generation and reproducibility, matching, undo/redo, hints, the save-file
   round trip, the score file, and the translations (that all 93 catalogues
-  compile, and that a German run really does say "Pausiert").
+  compile, that a German run really does say "Pausiert", and that `--version`
+  and `--help` answer as they should).
 - `test/ui_test.rb` — 80 checks driving the real window offscreen: selecting
   and matching tiles by clicking their centres, shaking a blocked tile,
   undo/redo, the hint penalty, pausing and resuming, all three tile sets, the

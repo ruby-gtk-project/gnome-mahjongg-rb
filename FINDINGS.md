@@ -109,6 +109,20 @@ realising and unrealising a fresh one per shot has the same nil-node effect,
 and unrealising it at all trips
 `gsk_renderer_dispose: assertion failed: (!priv->is_realized)`.
 
+## Gtk::Application#run does not prepend the program name
+
+`app.run(ARGV)` looks right and quietly breaks command-line parsing: GLib
+treats the first element of the array it is handed as `argv[0]` and drops it,
+so `./gnome-mahjongg-rb --version` arrives as an empty option list. The
+`handle-local-options` handler still runs — with nothing in its
+`GLib::VariantDict`, which makes it look as though `add_main_option` had not
+worked.
+
+```ruby
+app.run(ARGV)                       # --version silently ignored
+app.run([$PROGRAM_NAME, *ARGV])     # parsed, and listed by --help
+```
+
 ## The dconf backend accepts writes and rolls them back without a session bus
 
 Not a ruby-gnome defect, but it cost an hour. With no D-Bus session, writes
