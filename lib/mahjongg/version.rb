@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 module Mahjongg
-  # Tracks the upstream release this port was made from.
-  VERSION = '49.1.1'
+  # Version namespace for this gem.
+  module Version
+    # Current gem version.
+    VERSION = "0.1.0"
+  end
+  # Current gem version exposed at the traditional constant location.
+  VERSION = Version::VERSION # Traditional Constant Location
 end
