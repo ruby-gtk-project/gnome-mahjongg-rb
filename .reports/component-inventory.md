@@ -138,3 +138,14 @@ not a gap.
    class when `APP_ID` ends in `.Devel`. The port ships one app id, so the class
    can never apply. Harmless, but it is a parity row that will never close and
    should be recorded as out of scope rather than chased.
+3. **`app.shortcuts` is never installed upstream.** Verified by grepping the
+   whole `origin/main` tree: the action name appears only in `data/ui/menu.ui`
+   (the `_Keyboard Shortcuts` item), `data/ui/shortcuts-dialog.ui` (its own
+   "Show Keyboard Shortcuts" item) and the GResource manifest. No
+   `ActionEntry`, `add_action` or `install_action` in `src/*.vala` registers it,
+   and `data/ui/shortcuts-dialog.ui` has no backing class. The port installs
+   `app.shortcuts` in `lib/mahjongg/application.rb` and opens
+   `Mahjongg::ShortcutsDialog` from it. That is a deliberate divergence in the
+   port's favour — the component is reachable here and effectively dead
+   upstream — and is recorded so a later parity pass does not "fix" it by
+   removing the action.
