@@ -52,8 +52,9 @@ rake pot              # regenerate the template from po/POTFILES.in
 rake lint             # rubocop, including the custom cops in cops/
 ```
 
-The tests need no display: GTK4 renders offscreen, and `test/ui_test.rb`
-drives the real window — playing moves through the board view, opening every
+The tests run on a virtual display — `rake test` wraps each script in
+`xvfb-run`, because GTK4 fails to initialise with no display at all.
+`test/ui_test.rb` drives the real window — playing moves through the board view, opening every
 dialog, winning a game — and writes screenshots to `tmp/shots` as it goes.
 
 | File | What it holds |

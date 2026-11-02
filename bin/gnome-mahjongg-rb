@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# The development and installed-tree launcher: `nix develop` prints it as the
+# run command, the Nix package installs it beside lib/, and test/logic_test.rb
+# spawns it to check --version and --help. exe/gnome-mahjongg-rb is the same
+# launcher for the packaged gem, where RubyGems puts lib/ on the load path.
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+
+require 'mahjongg'
+
+# GApplication parses the command line itself, so --version and --help are
+# handled inside the application rather than here. It wants a full argv,
+# program name included: ruby-gnome passes the array through untouched, and
+# GLib drops the first element as argv[0].
+Mahjongg::Application.new.build.run([$PROGRAM_NAME, *ARGV])

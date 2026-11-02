@@ -129,14 +129,11 @@ not a gap.
 
 ## Blockers
 
-1. **Dead scaffolding: `lib/gnome_mahjongg/`.** `lib/gnome_mahjongg.rb` and
-   `lib/gnome_mahjongg/application.rb` are the untouched generator stub — an
-   `Adwaita::StatusPage` reading "The Ruby port has not been written yet." —
-   and `exe/gnome-mahjongg` is its launcher. Nothing else in the tree requires
-   them; the real app is `lib/mahjongg/**` behind `exe/gnome-mahjongg-rb`. Two
-   entry points, one of which renders a placeholder, is the one thing in this
-   repo that will read as an unfinished port. Delete both files and that `exe`,
-   or make `exe/gnome-mahjongg` an alias of the real launcher.
+1. ~~**Dead scaffolding: `lib/gnome_mahjongg/`.**~~ Resolved: the generator stub
+   (`lib/gnome_mahjongg.rb`, `lib/gnome_mahjongg/application.rb`) and its
+   launcher `exe/gnome-mahjongg` are deleted, and the launcher the README, the
+   devshell banner, the Nix package and `test/logic_test.rb` all name —
+   `bin/gnome-mahjongg-rb` — now exists. One entry point, the real app.
 2. **No upstream `.Devel` counterpart.** `src/window.vala` adds a `devel` CSS
    class when `APP_ID` ends in `.Devel`. The port ships one app id, so the class
    can never apply. Harmless, but it is a parity row that will never close and

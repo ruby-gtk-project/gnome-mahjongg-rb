@@ -21,8 +21,9 @@
 #     end
 #   end
 #
-# Run it with no display server at all — GTK4 renders to an offscreen surface
-# and screenshots come out identical to a real session. No Xvfb needed.
+# It needs a display only because GTK4 refuses to initialise without one: an
+# Xvfb display is enough, nothing is ever shown on it, and the screenshots come
+# out identical to a real session. `rake test` supplies that display.
 module GtkDriver
   # Steps run one per tick. 500ms is comfortable for anything that only touches
   # widgets; raise it if a step kicks off real I/O you want settled before the

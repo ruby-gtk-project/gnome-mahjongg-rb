@@ -205,6 +205,7 @@
             pkgs.pkg-config
             pkgs.glib.dev            # glib-compile-schemas
             pkgs.gettext             # msgfmt --desktop / --xml
+            pkgs.xvfb-run            # GTK needs a display to initialise
             pkgs.gsettings-desktop-schemas
             pkgs.adwaita-icon-theme
           ] ++ gtkStack;

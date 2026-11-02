@@ -233,17 +233,21 @@ task :metadata do
     'data/org.gnome.Mahjongg.Rb.metainfo.xml'
 end
 
-desc 'Run the test suite (renders offscreen; needs no display)'
-task test: %i[schema locale] do
+desc 'Run the test suite (on a virtual display, via xvfb-run)'
+task test: %i[schema locale metadata] do
   %w[test/logic_test.rb test/ui_test.rb].each do |script|
     puts "\n== #{script}"
+    # GTK4 initialises at `require` time and fails outright with no display, so
+    # the scripts run against Xvfb rather than the session's own screen.
+    # GDK_DISABLE=gl keeps Mesa off the software GL path, whose warnings land on
+    # the launcher's stdout and would spoil the `--version` check.
     sh(
-      { 'GSETTINGS_SCHEMA_DIR' => File.expand_path('data/schemas', __dir__) },
-      'env',
-      '-u',
-      'DISPLAY',
-      '-u',
-      'WAYLAND_DISPLAY',
+      {
+        'GSETTINGS_SCHEMA_DIR' => File.expand_path('data/schemas', __dir__),
+        'GDK_DISABLE' => 'gl',
+      },
+      'xvfb-run',
+      '-a',
       'ruby',
       script,
     )
