@@ -23,6 +23,12 @@ ENV['LC_ALL'] = ENV['LANGUAGE']
 require 'mahjongg'
 require_relative 'gtk_driver'
 
+# Ruby's IO buffer, not libc's, so a crash that skips our own `ensure`/exit
+# path (a fatal GLib/GSK assertion, which calls abort() straight through)
+# would otherwise discard every step/check line printed before it. Flushing
+# per write keeps the trail of what actually ran, even on a hard crash.
+$stdout.sync = true
+
 app = Mahjongg::Application.new
 
 def view(app) = app.main_window.game_view
@@ -63,10 +69,17 @@ def blank?(surface)
 end
 
 # AdwAlertDialog has no Ruby-side `response` call, so the signal is emitted
-# directly — the same thing clicking the button does.
+# directly — the same thing clicking the button does. Emitting it does not
+# close the dialog by itself; closing it afterwards is this helper's job,
+# *except* when the response handler already did it — 'change_layout'
+# reaches Window#new_game, which force-closes whatever dialog is still open
+# as part of dealing the new board. Closing an already-closed AdwAlertDialog
+# logs an Adwaita-CRITICAL ("Trying to close ... that's not presented") and,
+# worse, can leave a Gsk renderer realized when it is later disposed, which
+# aborts the whole process with a fatal Gsk assertion — so this checks first.
 def respond(dialog, response)
   dialog.signal_emit('response', response)
-  dialog.close
+  dialog.close if dialog.visible?
 end
 
 # ScoreDialog is a plain Ruby object the application never keeps a handle to
@@ -367,11 +380,32 @@ GtkDriver.drive(app, shots: 'tmp/shots') do |d, _|
     # Clear the board the way a player would: take any legal pair, and when
     # picking greedily paints us into a corner, reshuffle — which is exactly
     # what the No Moves Left dialog offers.
+    # test/find_tictactoe_seed.rb, which picked seed 0 for exactly this
+    # reason, caps its own retry at 20 shuffles so a seed that turns out not
+    # to behave as checked fails fast instead of spinning forever — each
+    # shuffle re-runs the same backtracking solver generate() uses, so an
+    # unbounded loop here would not just be slow, it would hang the whole
+    # driver with no watchdog able to step in (this runs inside a single
+    # step, with no return to the main loop for GLib::Timeout to fire on).
+    #
+    # Unlike that standalone script, Game here has a real listener on
+    # :moved (Window#moved, wired by Application#new_game) that recomputes
+    # moves_left — an O(tiles²) rescan of the whole board — and writes a
+    # GTK label property on every single pair removed. A human player
+    # always leaves a GTK main-loop turn between moves for that bookkeeping
+    # to settle; this loop, taking pairs as fast as Ruby can, does not, and
+    # the unflushed invalidation piles up move over move. One non-blocking
+    # iteration per move is what a real click-to-click pause gives the
+    # widget tree for free, and restores the window the watchdog above
+    # needs to ever get a turn, which a purely synchronous loop closes off
+    # completely.
     @shuffles = 0
     until app.game.complete?
+      GLib::MainContext.default.iteration(false)
+
       pair = find_pair(app.game)
       if pair.nil?
-        unless app.game.can_shuffle?
+        if !app.game.can_shuffle? || @shuffles >= 20
           break
         end
 

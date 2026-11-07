@@ -58,6 +58,7 @@ module GtkDriver
       @failed_checks = []
       @errored_steps = []
       @window_block = nil
+      @activated = false
     end
 
     # --- Registered from inside the block ---------------------------------
@@ -117,7 +118,17 @@ module GtkDriver
         end
       end
     rescue StandardError => e
-      puts "    shot #{name} failed: #{e.class}: #{e.message}"
+      # A rendering failure used to be logged here and then dropped: it
+      # never touched @checks or @failed_checks, so a run could print
+      # "shot NN-whatever failed: ..." on one line and "N of N checks
+      # passed" / "DRIVE OK" right below it — a state this dialog's render
+      # genuinely hit (see FINDINGS.md's queued-redraw note) that a reader
+      # of only the final line would never see. A shot is a check: it is
+      # asserting "this widget is in a state worth a picture of", and this
+      # makes it count as one.
+      @checks += 1
+      @failed_checks << "shot #{name} (#{e.class}: #{e.message})"
+      puts "    FAIL shot #{name} (#{e.class}: #{e.message})"
       nil
     end
 
@@ -129,7 +140,10 @@ module GtkDriver
       yield(self, app_object)
 
       app_object.build.tap do |application|
-        application.signal_connect('activate') { schedule(application) }
+        application.signal_connect('activate') do
+          @activated = true
+          schedule(application)
+        end
         arm_watchdog(application)
         application.run([])
       end
@@ -183,27 +197,55 @@ module GtkDriver
         # node at all, so only the first screenshot of a run comes out.
         @renderer ||= Gsk::CairoRenderer.new.tap { |renderer| renderer.realize(nil) }
 
-        # A widget with a queued redraw snapshots to nothing, so let GTK settle
-        # its pending frame before asking for the node.
+        # A widget with a queued redraw snapshots to nothing, so let GTK
+        # settle its pending frame before asking for the node. A dialog that
+        # just presented (an Adwaita open transition, or simply a frame
+        # still queued behind a burst of model updates from the step
+        # before) can still have nothing queued *yet* on the first pass, so
+        # a second, more patient drain — iteration(true) blocks for the next
+        # source instead of giving up immediately — is tried before this
+        # counts as a real failure rather than a timing fluke.
+        node = capture_node(widget) || capture_node(widget, patient: true)
+
+        if node.nil?
+          raise "widget produced no render node (#{widget.class} #{widget.width}x#{widget.height} " \
+                "mapped=#{widget.mapped?} realized=#{widget.realized?} visible=#{widget.visible?})"
+        end
+
+        @renderer.render_texture(node, nil).save_to_png(path)
+      end
+
+      def capture_node(widget, patient: false)
         GLib::MainContext.default.then do |context|
-          100.times { context.pending? ? context.iteration(false) : break }
+          if patient
+            10.times { context.iteration(true) }
+          else
+            100.times { context.pending? ? context.iteration(false) : break }
+          end
         end
 
         Gtk::Snapshot.new.then do |snapshot|
           Gtk::WidgetPaintable.new(widget).snapshot(snapshot, widget.width, widget.height)
-          snapshot.to_node.then do |node|
-            if node.nil?
-              raise "widget produced no render node (#{widget.class} #{widget.width}x#{widget.height} " \
-                    "mapped=#{widget.mapped?} realized=#{widget.realized?} visible=#{widget.visible?})"
-            end
-
-            @renderer.render_texture(node, nil).save_to_png(path)
-          end
+          snapshot.to_node
         end
       end
 
       def report
         puts
+        unless @activated
+          # `application.run` can return having never fired 'activate' at
+          # all — GApplication#register failing (seen in this environment as
+          # "Failed to register: Timeout was reached" when the D-Bus session
+          # bus is slow to answer) is a silent way for that to happen. With
+          # no activation, no step ever runs and @checks stays zero, so
+          # without this the report below would print a bare "DRIVE OK" that
+          # verified nothing at all — the exact false-green shape this
+          # harness exists to rule out.
+          @errored_steps << 'the application never activated (did GApplication#register fail?)'
+        end
+        if @checks.zero?
+          @errored_steps << 'no checks ran — a green report here would mean nothing was verified'
+        end
         if @checks.positive?
           puts "#{@checks - @failed_checks.length} of #{@checks} checks passed"
         end

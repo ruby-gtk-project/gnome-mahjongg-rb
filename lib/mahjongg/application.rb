@@ -145,8 +145,13 @@ module Mahjongg
       # -1 carries on and activates.
       def handle_options(options)
         if options.contains?('version')
-          # Deliberately untranslated, so it stays easy to parse.
-          warn "gnome-mahjongg-rb #{VERSION}"
+          # Deliberately untranslated, so it stays easy to parse. On stdout,
+          # not stderr: `--version` is the GNU convention of a program
+          # printing its own identification to be read or piped, not a
+          # diagnostic about something going wrong, so `warn` (which writes
+          # to $stderr) is the wrong call here even though it reads the most
+          # natural.
+          puts "gnome-mahjongg-rb #{VERSION}"
           0
         else
           -1

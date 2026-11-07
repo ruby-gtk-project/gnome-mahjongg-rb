@@ -4,6 +4,7 @@
 # generation, undo/redo, save/restore and the score file.
 
 require 'English'
+require 'open3'
 require 'tmpdir'
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
@@ -233,11 +234,19 @@ end
 
 puts '== command line'
 check('--version prints the release and exits 0') do
-  IO.popen(
+  # stdout and stderr are captured separately, on purpose: GTK logs a
+  # libEGL warning to stderr on every run under Xvfb with no DRI3, which
+  # has nothing to do with --version's own output. Merging the two streams
+  # would make this check depend on that environment noise instead of on
+  # what the GNU convention actually asks for — the version line on
+  # stdout — which is the real regression this caught: the line was going
+  # out through `warn` (stderr) rather than `puts` (stdout).
+  stdout, _stderr, status = Open3.capture3(
     { 'GSETTINGS_SCHEMA_DIR' => File.expand_path('../data/schemas', __dir__) },
-    [File.expand_path('../bin/gnome-mahjongg-rb', __dir__), '--version'],
-    err: %i[child out],
-  ) { |io| io.read }.strip == "gnome-mahjongg-rb #{Mahjongg::VERSION}" && $CHILD_STATUS.success?
+    File.expand_path('../bin/gnome-mahjongg-rb', __dir__),
+    '--version',
+  )
+  stdout.strip == "gnome-mahjongg-rb #{Mahjongg::VERSION}" && status.success?
 end
 check('--help lists the version option, translated') do
   IO.popen(
