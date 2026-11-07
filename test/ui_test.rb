@@ -69,6 +69,29 @@ def respond(dialog, response)
   dialog.close
 end
 
+# ScoreDialog is a plain Ruby object the application never keeps a handle to
+# once it is presented — only the Adwaita::Dialog widget survives, reachable
+# through Window#visible_dialog. The clear-scores button lives inside that
+# widget tree, with no accessor of its own, so finding it means walking the
+# tree the way the "labels" helper in tally-rb's driver does.
+def find_widget(widget, &predicate)
+  if predicate.call(widget)
+    widget
+  else
+    child = widget.first_child
+    found = nil
+    while child && found.nil?
+      found = find_widget(child, &predicate)
+      child = child.next_sibling
+    end
+    found
+  end
+end
+
+def clear_scores_button(dialog)
+  find_widget(dialog) { |w| w.is_a?(Gtk::Button) && w.icon_name == 'user-trash-symbolic' }
+end
+
 GtkDriver.drive(app, shots: 'tmp/shots') do |d, _|
   d.window { window(app) }
 
@@ -330,6 +353,17 @@ GtkDriver.drive(app, shots: 'tmp/shots') do |d, _|
 
   d.step('playing the board out wins the game') do
     resume(app)
+    # The board a player would actually see here carries whatever seed
+    # 'new-game' drew at random a few steps back. A board is only guaranteed
+    # solvable by the *specific* removal order Game#generate's backtracking
+    # solver found; the always-take-the-first-match strategy below is not
+    # that order, and on an unlucky seed it can paint itself into a corner
+    # with fewer than two selectable tiles left — a real dead board no
+    # shuffle can rescue, not a bug in the port. Re-seeding here the same way
+    # logic_test.rb pins Turtle to seed 12345 keeps this step deterministic;
+    # seed 0 was checked (see test/find_tictactoe_seed.rb) to clear in one
+    # shuffle under this exact greedy strategy.
+    app.game.generate(0)
     # Clear the board the way a player would: take any legal pair, and when
     # picking greedily paints us into a corner, reshuffle — which is exactly
     # what the No Moves Left dialog offers.
@@ -371,6 +405,35 @@ GtkDriver.drive(app, shots: 'tmp/shots') do |d, _|
 
   d.step('the populated scores dialog renders') do
     d.shot('16-scores', window(app).visible_dialog)
-    window(app).visible_dialog.close
+  end
+
+  d.step('the clear-scores button opens a confirmation, which cancel backs out of') do
+    @scores_dialog = window(app).visible_dialog
+    d.check('the button is sensitive with a score on the books') do
+      clear_scores_button(@scores_dialog).sensitive?
+    end
+    clear_scores_button(@scores_dialog).signal_emit('clicked')
+    d.check('a confirmation dialog opened') { !window(app).visible_dialog.nil? }
+    d.check('it is the clear-all confirmation') do
+      window(app).visible_dialog.heading == 'Clear All Scores?'
+    end
+    d.shot('17-clear-scores-confirm')
+    respond(window(app).visible_dialog, 'cancel')
+    d.check('the confirmation closed back onto the scores dialog') do
+      window(app).visible_dialog.equal?(@scores_dialog)
+    end
+    d.check('the score survived cancelling') { app.history.length == 1 }
+  end
+
+  d.step('confirming clear wipes every score') do
+    clear_scores_button(@scores_dialog).signal_emit('clicked')
+    respond(window(app).visible_dialog, 'clear')
+    d.check('the history is empty') { app.history.length.zero? }
+    d.check('the clear button disabled itself') { !clear_scores_button(@scores_dialog).sensitive? }
+  end
+
+  d.step('the scores dialog falls back to its empty state') do
+    d.shot('18-scores-cleared', @scores_dialog)
+    @scores_dialog.close
   end
 end
