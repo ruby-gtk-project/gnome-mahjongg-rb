@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Upstream | `main` @ `f61be5e` |
-| Port | `ruby` @ `9a07c96` |
+| Port | `ruby` @ `2f33657` (re-verified this round; `2f33657` only touches the test harness and `--version`'s output stream, not translation call sites — the 43-message `xgettext` extraction gap below was re-run live this round and reproduces unchanged) |
 | Upstream domain | `gnome-mahjongg` (from `po/meson.build`) |
 | Port domain | **none** — `rake locale` compiles straight to `gnome-mahjongg-rb.mo`, never calling `bindtextdomain`/`TextDomain` with a name that matches anything the catalogue census can confirm |
 | Upstream messages | 100 (109 occurrences, 6 reused, 0 plural, 43 with a `msgctxt`) |

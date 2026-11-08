@@ -1,30 +1,43 @@
 # Test parity — gnome-mahjongg-rb
 
 Upstream: `origin/main` @ `f61be5e` (`tests/test-game.vala`, `tests/test-map.vala`,
-GLib `Test` framework). Port: `ruby` @ `9a07c96` (`test/logic_test.rb`,
+GLib `Test` framework). Port: `ruby` @ `2f33657` (`test/logic_test.rb`,
 `test/ui_test.rb`, driven by `test/gtk_driver.rb`).
 
-## The suite does run, and was actually run for this audit
+## Follow-up on the prior audit round's findings
 
-Not trusted from the stated gate. Both scripts were executed live, on a
-virtual display, via the fork's own dev shell:
+The previous pass of this audit (reports at commit `8134671`, port then at
+`9a07c96`) found that a failed screenshot inside `ui_test.rb`'s drive run was
+logged but never counted against the check total, so a rendering failure
+could sit next to a printed `DRIVE OK`. Commit `2f33657` ("Fix --version going
+to stderr, and harden the drive harness") fixes exactly this, and three
+adjacent issues the same live-driving work turned up: a failed
+`GApplication#register` (seen as a D-Bus timeout under host load) used to
+leave `DRIVE OK` printed with zero checks run; a screenshot failure now
+increments `@failed_checks` (with one patient retry for a dialog whose open
+transition hasn't settled) instead of being dropped; and `--version` now
+prints to stdout, not stderr, matching the GNU convention `logic_test.rb`
+itself checks for. **Re-run live this round** (`nix develop --command
+xvfb-run -a ruby test/logic_test.rb`): all checks pass, including "--version
+prints the release and exits 0", confirming the stdout fix landed correctly.
 
-```
-nix develop --command bash -c '
-  export GSETTINGS_SCHEMA_DIR=$(pwd)/data/schemas GDK_DISABLE=gl
-  xvfb-run -a ruby test/logic_test.rb
-  xvfb-run -a ruby test/ui_test.rb
-'
-```
-
-Result: `logic_test.rb` — "all checks passed" (24 checks). `ui_test.rb` — **87
-of 87 checks passed, `DRIVE OK`**, matching the stated gate exactly. One
-non-fatal issue inside that run: the screenshot for step 36 ("the winning
-scores dialog renders") failed — `RuntimeError: widget produced no render
-node` — logged as `shot 15-win failed:` but not counted against the 87, since
-screenshots are not themselves checks. That dialog's render is therefore
-unverified by this run even though the gate is green; see
-`accountability-ensurance.md`.
+`test/ui_test.rb` itself could not be independently re-driven to a clean
+`DRIVE OK` or `DRIVE FAILED` this round: three attempts (plain, under
+`dbus-run-session`, and backgrounded with a 4-minute wait) each stalled on
+this machine without reaching either terminal line, and `ps` showed a dozen
+other repos' Xvfb/ruby GTK processes competing for the CPU at the same time —
+the same "heavy host load" condition `2f33657`'s own commit message names as
+the cause of the D-Bus registration timeout it was written to tolerate. This
+is reported plainly rather than papered over with the previous round's number:
+**the 87-of-87 UI-driver result is not independently reconfirmed by this
+round of the audit**; it is carried forward from the prior round's live run
+(at `9a07c96`, before the harness hardening) plus the `drive_ok=true` gate
+this round's harness reported as its own, separately-run, result. The
+harness-hardening commit's intent — making a stalled registration or a
+dropped screenshot failure count as a failure rather than print `DRIVE OK`
+regardless — was not exercised to a conclusion by this audit's own attempts,
+so whether it *actually* closes the previously-flagged screenshot gap is
+still unconfirmed by live evidence, only by reading the diff.
 
 ## Upstream census
 

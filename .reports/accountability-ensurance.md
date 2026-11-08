@@ -65,16 +65,44 @@ are compiled", by extension "the catalogue is intact") that rests on
 something — `rake pot`'s correctness — never executed by any test, anywhere
 in the suite. Running it live, in this audit, is what surfaced the defect.
 
-### 3. A screenshot failure inside a run that reports full success (test-parity.md / component-parity.md)
+### 3. A screenshot failure inside a run that reports full success — **fixed in source since the prior round, not yet re-confirmed live**
 
-`ui_test.rb`'s step 36, "the winning scores dialog renders", fails to take
-its screenshot (`RuntimeError: widget produced no render node`) in the same
-run that reports `87 of 87 checks passed, DRIVE OK`. The failure is logged to
-stdout (`shot 15-win failed: ...`) but is not wired to any check, so it does
-not affect the pass/fail count and would not be caught by anything that only
-reads the final line. The winning-dialog visual state is, right now,
-unverified — not because anyone said so, but because the harness does not
-count it as something that can fail.
+The prior round of this audit found that `ui_test.rb`'s step 36, "the
+winning scores dialog renders", failed to take its screenshot
+(`RuntimeError: widget produced no render node`) in the same run that
+reported `87 of 87 checks passed, DRIVE OK` — logged but not wired to any
+check. Commit `2f33657`, made after that round, changes `test/gtk_driver.rb`
+so a failed screenshot increments `@checks`/`@failed_checks` (after one
+patient retry for a dialog whose open transition hasn't settled). Read
+alone, that closes this finding. This audit tried three times to re-drive
+`test/ui_test.rb` live to confirm it, on this same machine, and got a fourth
+data point instead: every attempt timed out or failed to register
+(`Failed to register: Timeout was reached`) under heavy concurrent host load
+(other repos' own Xvfb/GTK test runs were visibly competing for the CPU in
+`ps` throughout). One of those attempts is useful evidence in the hardening
+commit's favour even though it isn't the confirmation this finding wanted:
+it printed `errored step: no checks ran — a green report here would mean
+nothing was verified` and `DRIVE FAILED (2)` instead of a bare `DRIVE OK` —
+which is precisely the other failure mode `2f33657` was written to close
+(a failed `GApplication#register` used to leave `DRIVE OK` printed with zero
+checks run). So the harness now fails loudly on the failure this audit
+actually triggered. Whether it also now fails loudly on *that specific*
+screenshot failure, rather than on registration, was not independently
+re-confirmed by a completed run this round. Recorded as fixed-in-source,
+not fixed-and-reconfirmed — the distinction the task brief asks this report
+to preserve.
+
+### 4. A stale number in the port's own setup doc (new this round)
+
+`CLAUDE.md`'s Setup section states `rake test` runs "62 logic checks + 80 UI
+checks". The live runs this audit performed (this round and the prior one)
+consistently show 24 logic checks and 87 UI checks. Neither number is wrong
+in a way that hides a gap — nothing here is being used to claim coverage that
+doesn't exist — but it is a claim in the port's own top-level doc that does
+not match what running the suite actually shows, and a reader trusting the
+doc over the terminal would be misled about how big the suite is. Low
+severity, flagged per the brief's instruction to grep documentation for green
+claims, not just code.
 
 ## Is any of this "excused"?
 

@@ -1,11 +1,22 @@
 # Component parity — gnome-mahjongg-rb
 
-Upstream: `origin/main` @ `f61be5e`. Port: `ruby` @ `9a07c96`.
+Upstream: `origin/main` @ `f61be5e`. Port: `ruby` @ `2f33657`.
 Built on `.reports/component-inventory.md` (the `component-identification`
 skill's output, generated earlier on this branch). This document re-verifies a
 sample of that inventory's claims against source and adds what identification
 alone cannot show: whether each component *behaves* the same, not just
 whether it exists.
+
+**Update on finding 1 below (this round):** commit `2f33657`, made after the
+prior round of this audit, changes `test/gtk_driver.rb` so a failed
+screenshot now counts as a failed check (with one patient retry) instead of
+being logged and dropped. That is the right fix for exactly the gap finding 1
+describes. It is **not independently reconfirmed live this round** — three
+attempts to re-drive `test/ui_test.rb` on this machine stalled under heavy
+concurrent host load from other repos' own Xvfb/GTK test runs (visible in
+`ps`) without reaching `DRIVE OK` or `DRIVE FAILED` — so the finding is kept
+below, now marked as "fixed in source, not re-confirmed live," rather than
+deleted on the strength of a diff read alone. See `test-parity.md` for detail.
 
 ## Verdict
 
@@ -14,10 +25,12 @@ Spot-checks below confirm the inventory's claims rather than merely repeating
 them. Three findings do not change the verdict but are real and are recorded
 so they are not lost:
 
-1. One drive-run screenshot (`15-win`, the winning scores dialog) failed to
-   render (`widget produced no render node`) even though the run still
-   reported `87 of 87 checks passed` and `DRIVE OK` — the screenshot is not
-   itself a counted check, so a rendering failure on that one dialog state
+1. **(Fixed in source by `2f33657`; not re-confirmed live this round — see
+   update above.)** One drive-run screenshot (`15-win`, the winning scores
+   dialog) failed to render (`widget produced no render node`) even though
+   the run still reported `87 of 87 checks passed` and `DRIVE OK` — the
+   screenshot is not itself a counted check, so a rendering failure on that
+   one dialog state
    does not fail the suite. That state is visually unverified this run. See
    `test-parity.md` and `accountability-ensurance.md`.
 2. `app.shortcuts` is installed by the port but is dead code upstream (no
