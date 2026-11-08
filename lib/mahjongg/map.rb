@@ -170,6 +170,26 @@ module Mahjongg
 
     private
 
+      # `map.name` comes from the parsed XML catalogue, so `p_('mahjongg map
+      # name', map.name)` above sees a variable, not a literal, and
+      # `xgettext` cannot follow it back to any particular map. This call
+      # exists only so `rake pot` still finds every layout name; it is never
+      # executed. Keep this list in sync with `data/maps/mahjongg.map`.
+      def pot_extraction_aid
+        [
+          p_('mahjongg map name', 'Turtle'),
+          p_('mahjongg map name', 'The Ziggurat'),
+          p_('mahjongg map name', 'Tic-Tac-Toe'),
+          p_('mahjongg map name', 'Four Bridges'),
+          p_('mahjongg map name', 'Red Dragon'),
+          p_('mahjongg map name', 'Overpass'),
+          p_('mahjongg map name', "Pyramid's Walls"),
+          p_('mahjongg map name', 'Confounding Cross'),
+          p_('mahjongg map name', 'Taipei'),
+          p_('mahjongg map name', 'Cloud'),
+        ]
+      end
+
       def parse_map(element)
         Map.new.tap do |map|
           map.name = element.attributes['name'].to_s

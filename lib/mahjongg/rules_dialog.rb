@@ -37,42 +37,46 @@ module Mahjongg
       @rules ||= [
         rule(
           "#{Application::APP_ID}-symbolic",
-          rules_text('Clear the board by matching pairs of identical tiles'),
+          p_('game rules', 'Clear the board by matching pairs of identical tiles'),
         ),
         rule(
           'object-select-symbolic',
-          rules_text('Only uncovered tiles with a free long edge can be selected'),
+          p_('game rules', 'Only uncovered tiles with a free long edge can be selected'),
         ),
         rule(
           'stopwatch-symbolic',
-          rules_text('Rounds are scored based on completion time'),
+          p_('game rules', 'Rounds are scored based on completion time'),
         ),
         rule(
           'media-playback-pause-symbolic',
-          rules_text('You can pause the game'),
-          rules_text('Tile faces will be hidden'),
+          p_('game rules', 'You can pause the game'),
+          p_('game rules', 'Tile faces will be hidden'),
         ),
         rule(
           'edit-undo-symbolic',
-          rules_text('You can undo or redo a move'),
-          rules_text('No time penalty is added'),
+          p_('game rules', 'You can undo or redo a move'),
+          p_('game rules', 'No time penalty is added'),
         ),
         rule(
           'dialog-information-symbolic',
-          rules_text('You can use hints to reveal matching tiles'),
-          rules_text('Adds a 30-second time penalty'),
+          p_('game rules', 'You can use hints to reveal matching tiles'),
+          p_('game rules', 'Adds a 30-second time penalty'),
         ),
         rule(
           'media-playlist-shuffle-symbolic',
-          rules_text('You can shuffle tiles when no moves are left'),
-          rules_text('Adds a 60-second time penalty'),
+          p_('game rules', 'You can shuffle tiles when no moves are left'),
+          p_('game rules', 'Adds a 60-second time penalty'),
         ),
       ]
     end
 
     private
 
-      def rules_text(message) = p_('game rules', message)
+      # `xgettext` only recognises a marker call whose own arguments are
+      # literals, so every `p_('game rules', '...')` call above is written
+      # out in full at its call site rather than funnelled through a
+      # single-argument helper that would hide the literal one call frame
+      # away. See `rake pot`'s task comment and `po/POTFILES.in`.
 
       def rule(icon_name, title, subtitle = nil)
         Adwaita::ActionRow.new.tap do |row|

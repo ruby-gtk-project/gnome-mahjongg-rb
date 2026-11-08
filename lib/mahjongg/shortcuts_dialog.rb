@@ -49,17 +49,40 @@ module Mahjongg
 
     def game_section
       @game_section ||= Adwaita::ShortcutsSection.new.tap do |section|
-        section.title = shortcut_text('Game')
+        section.title = p_('shortcut window', 'Game')
       end
     end
 
     def general_section
       @general_section ||= Adwaita::ShortcutsSection.new.tap do |section|
-        section.title = shortcut_text('General')
+        section.title = p_('shortcut window', 'General')
       end
     end
 
     private
+
+      # `GAME_SHORTCUTS` and `GENERAL_SHORTCUTS` above carry their titles as
+      # plain strings so the table stays easy to read and extend, but that
+      # means `action_item`'s `p_` call below sees a variable, not a literal,
+      # and `xgettext` cannot follow it back to the table. These calls exist
+      # only so `rake pot` still finds every title; they are never executed.
+      # Keep this list in sync with the two tables above and with
+      # `accelerator_item`'s one direct caller.
+      def pot_extraction_aid
+        [
+          p_('shortcut window', 'New Game'),
+          p_('shortcut window', 'Restart Game'),
+          p_('shortcut window', 'Pause Game'),
+          p_('shortcut window', 'Undo'),
+          p_('shortcut window', 'Redo'),
+          p_('shortcut window', 'Show Hint'),
+          p_('shortcut window', 'Show Keyboard Shortcuts'),
+          p_('shortcut window', 'Close Window'),
+          p_('shortcut window', 'Quit'),
+          p_('shortcut window', 'Show Game Rules'),
+          p_('shortcut window', 'Show Main Menu'),
+        ]
+      end
 
       def shortcut_text(message) = p_('shortcut window', message)
 

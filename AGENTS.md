@@ -30,7 +30,9 @@ touching the `Gemfile`, run `nix run nixpkgs#bundix -- -l` to regenerate it (the
 
 ```sh
 rake            # schema, catalogues, metadata, tests, lint
-rake test       # 62 logic checks + 80 UI checks, on an Xvfb display
+rake test       # logic checks + UI checks, on an Xvfb display — the exact
+                # counts drift as checks are added; trust `rake test`'s own
+                # "ok"/"FAIL" tally over any number written here
 ./bin/gnome-mahjongg-rb
 ```
 

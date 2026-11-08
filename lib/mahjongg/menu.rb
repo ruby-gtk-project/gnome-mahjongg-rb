@@ -90,6 +90,27 @@ module Mahjongg
       end
     end
 
+    # `LAYOUT_PROGRESSIONS`, `BACKGROUNDS` and `THEMES` above carry their
+    # labels as plain strings so the tables stay easy to read and extend, but
+    # `radio_section`'s `p_(context, label)` call then sees two variables,
+    # not literals, so `xgettext` cannot follow either one back to a table
+    # entry. These calls exist only so `rake pot` still finds every label;
+    # they are never executed. Keep this list in sync with the three tables
+    # above.
+    def pot_extraction_aid
+      [
+        p_('layout progression', 'No Progression'),
+        p_('layout progression', 'Sequential'),
+        p_('layout progression', 'Random'),
+        p_('background color', 'Follow System'),
+        p_('background color', 'Light'),
+        p_('background color', 'Dark'),
+        p_('mahjongg theme name', 'Postmodern'),
+        p_('mahjongg theme name', 'Smooth'),
+        p_('mahjongg theme name', 'Educational'),
+      ]
+    end
+
     def help_section
       Gio::Menu.new.tap do |section|
         section.append(_('Game R_ules'), 'app.rules')

@@ -5,6 +5,7 @@
 
 require 'English'
 require 'open3'
+require 'set'
 require 'tmpdir'
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
@@ -57,6 +58,42 @@ end
 check('slots are ordered back to front') do
   turtle = maps.get_map_by_name('Turtle')
   turtle.each_cons(2).all? { |a, b| a.layer <= b.layer }
+end
+check('Turtle slots match the pinned snapshot exactly') do
+  expected = [
+    [24, 0, 0], [22, 0, 0], [28, 7, 0], [20, 0, 0], [26, 7, 0], [18, 0, 0],
+    [20, 2, 0], [22, 4, 0], [24, 6, 0], [16, 0, 0], [18, 2, 0], [20, 4, 0],
+    [22, 6, 0], [24, 8, 0], [14, 0, 0], [16, 2, 0], [18, 4, 0], [20, 6, 0],
+    [22, 8, 0], [12, 0, 0], [14, 2, 0], [16, 4, 0], [18, 6, 0], [20, 8, 0],
+    [22, 10, 0], [10, 0, 0], [12, 2, 0], [14, 4, 0], [16, 6, 0], [18, 8, 0],
+    [20, 10, 0], [24, 14, 0], [8, 0, 0], [10, 2, 0], [12, 4, 0], [14, 6, 0],
+    [16, 8, 0], [18, 10, 0], [20, 12, 0], [22, 14, 0], [6, 0, 0], [8, 2, 0],
+    [10, 4, 0], [12, 6, 0], [14, 8, 0], [16, 10, 0], [18, 12, 0], [20, 14, 0],
+    [4, 0, 0], [6, 2, 0], [8, 4, 0], [10, 6, 0], [12, 8, 0], [14, 10, 0],
+    [16, 12, 0], [18, 14, 0], [2, 0, 0], [6, 4, 0], [8, 6, 0], [10, 8, 0],
+    [12, 10, 0], [14, 12, 0], [16, 14, 0], [4, 4, 0], [6, 6, 0], [8, 8, 0],
+    [10, 10, 0], [12, 12, 0], [14, 14, 0], [4, 6, 0], [6, 8, 0], [8, 10, 0],
+    [10, 12, 0], [12, 14, 0], [2, 6, 0], [4, 8, 0], [6, 10, 0], [8, 12, 0],
+    [10, 14, 0], [2, 8, 0], [4, 10, 0], [6, 12, 0], [8, 14, 0], [0, 7, 0],
+    [6, 14, 0], [4, 14, 0], [2, 14, 0], [18, 2, 1], [16, 2, 1], [18, 4, 1],
+    [14, 2, 1], [16, 4, 1], [18, 6, 1], [12, 2, 1], [14, 4, 1], [16, 6, 1],
+    [18, 8, 1], [10, 2, 1], [12, 4, 1], [14, 6, 1], [16, 8, 1], [18, 10, 1],
+    [8, 2, 1], [10, 4, 1], [12, 6, 1], [14, 8, 1], [16, 10, 1], [18, 12, 1],
+    [8, 4, 1], [10, 6, 1], [12, 8, 1], [14, 10, 1], [16, 12, 1], [8, 6, 1],
+    [10, 8, 1], [12, 10, 1], [14, 12, 1], [8, 8, 1], [10, 10, 1], [12, 12, 1],
+    [8, 10, 1], [10, 12, 1], [8, 12, 1], [16, 4, 2], [14, 4, 2], [16, 6, 2],
+    [12, 4, 2], [14, 6, 2], [16, 8, 2], [10, 4, 2], [12, 6, 2], [14, 8, 2],
+    [16, 10, 2], [10, 6, 2], [12, 8, 2], [14, 10, 2], [10, 8, 2], [12, 10, 2],
+    [10, 10, 2], [14, 6, 3], [12, 6, 3], [14, 8, 3], [12, 8, 3], [13, 7, 4]
+  ]
+  turtle = maps.get_map_by_name('Turtle')
+  turtle.map { |slot| [slot.x, slot.y, slot.layer] } == expected
+end
+check('Slot#equals matches on x/y/layer and not otherwise') do
+  slot_a = Mahjongg::Slot.new(1, 2, 3)
+  slot_b = Mahjongg::Slot.new(1, 2, 3)
+  slot_c = Mahjongg::Slot.new(2, 2, 3)
+  slot_a.equals(slot_b) && !slot_b.equals(slot_c)
 end
 
 puts '== generation'
@@ -124,6 +161,69 @@ check('a hint is available') { !game.next_hint.nil? }
 check('the hint is a real match') do
   match = game.next_hint
   match.tile0.matches?(match.tile1) && match.tile0.selectable? && match.tile1.selectable?
+end
+
+puts '== hint sequence, shuffle, undo/redo safety, pause edges'
+# A fresh board on the same seed as the generation block above, so the hint
+# cycle pinned here is reproducible without disturbing `game` itself.
+hint_game = Mahjongg::Game.new(turtle)
+hint_game.generate(12_345)
+
+expected_hint_pairs = [
+  [4, 5], [76, 77], [126, 127], [57, 59], [58, 59], [13, 15], [14, 15],
+  [12, 15], [24, 25], [58, 57], [14, 13], [12, 13], [12, 14], [132, 133],
+  [127, 125], [126, 125], [23, 21], [20, 21], [75, 73], [133, 135],
+  [132, 135], [3, 1], [2, 1], [88, 89], [2, 3], [20, 23]
+]
+check('the hint sequence matches the pinned order, twice around') do
+  (expected_hint_pairs + expected_hint_pairs).all? do |expected0, expected1|
+    match = hint_game.next_hint
+    match.tile0.number == expected0 && match.tile1.number == expected1
+  end
+end
+hint_game.destroy_timers
+
+check('undo on a fresh game with nothing to undo is a safe no-op') do
+  fresh = Mahjongg::Game.new(turtle)
+  fresh.generate(12_345)
+  fresh.undo
+  fresh.redo
+  ok = !fresh.can_undo? && !fresh.can_redo? && fresh.tiles.map(&:number) == game.tiles.map(&:number)
+  fresh.destroy_timers
+  ok
+end
+
+check('shuffle_remaining actually changes the remaining tile numbers') do
+  shuffled = Mahjongg::Game.new(turtle)
+  shuffled.generate(12_345)
+  before = shuffled.get_tile(0).number
+  shuffled.shuffle_remaining
+  after = shuffled.get_tile(0).number
+  shuffled.destroy_timers
+  after != before
+end
+
+check('pausing before the game has started is forbidden') do
+  unstarted = Mahjongg::Game.new(turtle)
+  unstarted.generate(12_345)
+  unstarted.paused = true
+  ok = !unstarted.paused? && unstarted.elapsed == 0.0
+  unstarted.destroy_timers
+  ok
+end
+
+check('pausing after the game has completed is forbidden') do
+  finishing = Mahjongg::Game.new(turtle)
+  finishing.generate(12_345)
+  until finishing.complete?
+    finishing.shuffle_remaining unless finishing.can_move?
+    match = finishing.next_hint
+    finishing.remove_pair(match.tile0, match.tile1)
+  end
+  finishing.paused = true
+  ok = !finishing.paused? && finishing.elapsed.positive?
+  finishing.destroy_timers
+  ok
 end
 
 puts '== save round trip'
@@ -212,6 +312,34 @@ check('a format string keeps its placeholder') do
 end
 check('an untranslated context is not confused with a translated one') do
   Mahjongg::Menu.p_('background color', 'Light') == 'Hell'
+end
+
+puts '== pot regeneration'
+check('rake pot still extracts every committed msgid/msgctxt pair') do
+  # A helper wrapping p_/_ with a non-literal argument is invisible to
+  # xgettext: it silently drops that message from a regenerated .pot without
+  # failing anything else. This regenerates the .pot from the current
+  # sources and diffs its (msgctxt, msgid) pairs against the committed one,
+  # so a regression like that is caught here instead of at the next
+  # `rake pot && msgmerge`, which would otherwise discard translations.
+  require 'gettext/tools'
+
+  pairs_of = lambda do |path|
+    File.read(path).scan(/^msgctxt "((?:[^"\\]|\\.)*)"\nmsgid "((?:[^"\\]|\\.)*)"/).to_set
+  end
+
+  root = File.expand_path('..', __dir__)
+  committed = File.join(root, 'po/gnome-mahjongg-rb.pot')
+  files = File.readlines(File.join(root, 'po/POTFILES.in'))
+              .map(&:strip)
+              .reject { |line| line.empty? || line.start_with?('#') }
+              .grep(/\.rb\z/)
+
+  Dir.mktmpdir do |dir|
+    fresh = File.join(dir, 'fresh.pot')
+    Dir.chdir(root) { GetText::Tools::XGetText.run('-o', fresh, *files) }
+    pairs_of.call(committed) == pairs_of.call(fresh)
+  end
 end
 
 puts '== metadata'

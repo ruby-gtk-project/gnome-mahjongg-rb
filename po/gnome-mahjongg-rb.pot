@@ -1,0 +1,431 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-08 02:01+0000\n"
+"PO-Revision-Date: 2026-11-08 02:01+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../lib/mahjongg/about_dialog.rb:62
+msgid "Layouts by"
+msgstr ""
+
+#: ../lib/mahjongg/about_dialog.rb:68 ../lib/mahjongg/application.rb:164
+#: ../lib/mahjongg/window.rb:138
+msgid "Mahjongg"
+msgstr ""
+
+#: ../lib/mahjongg/about_dialog.rb:74
+msgid "Match tiles and clear the board"
+msgstr ""
+
+#: ../lib/mahjongg/about_dialog.rb:81
+msgid "translator-credits"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:69
+msgid "Print release version and exit"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:276
+msgid "Change Layout?"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:276
+msgid "This will end your current game."
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:277 ../lib/mahjongg/score_dialog.rb:421
+msgid "_Cancel"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:278
+msgid "Change _Layout"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:360
+msgid "You can undo your moves and try to find a solution, or start a new game."
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:362
+msgid ""
+"You can undo your moves and try to find a solution, or reshuffle the remaining"
+" tiles."
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:365
+msgid "No Moves Left"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:366 ../lib/mahjongg/pause_overlay.rb:108
+#: ../lib/mahjongg/score_dialog.rb:164
+msgid "_Quit"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:368 ../lib/mahjongg/menu.rb:44
+#: ../lib/mahjongg/score_dialog.rb:149
+msgid "_New Game"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:370
+msgid "_Reshuffle"
+msgstr ""
+
+#: ../lib/mahjongg/application.rb:372
+msgid "_Continue"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:180
+msgctxt "mahjongg map name"
+msgid "Turtle"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:181
+msgctxt "mahjongg map name"
+msgid "The Ziggurat"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:182
+msgctxt "mahjongg map name"
+msgid "Tic-Tac-Toe"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:183
+msgctxt "mahjongg map name"
+msgid "Four Bridges"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:184
+msgctxt "mahjongg map name"
+msgid "Red Dragon"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:185
+msgctxt "mahjongg map name"
+msgid "Overpass"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:186
+msgctxt "mahjongg map name"
+msgid "Pyramid's Walls"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:187
+msgctxt "mahjongg map name"
+msgid "Confounding Cross"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:188
+msgctxt "mahjongg map name"
+msgid "Taipei"
+msgstr ""
+
+#: ../lib/mahjongg/map.rb:189
+msgctxt "mahjongg map name"
+msgid "Cloud"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:45 ../lib/mahjongg/pause_overlay.rb:100
+msgid "_Restart Game"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:46
+msgid "_Scores"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:52
+msgid "_Layout"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:54
+msgid "Layout _Progression"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:57
+msgid "_Appearance"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:74
+msgid "Background"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:75
+msgid "Theme"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:102
+msgctxt "layout progression"
+msgid "No Progression"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:103
+msgctxt "layout progression"
+msgid "Sequential"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:104
+msgctxt "layout progression"
+msgid "Random"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:105
+msgctxt "background color"
+msgid "Follow System"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:106
+msgctxt "background color"
+msgid "Light"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:107
+msgctxt "background color"
+msgid "Dark"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:108
+msgctxt "mahjongg theme name"
+msgid "Postmodern"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:109
+msgctxt "mahjongg theme name"
+msgid "Smooth"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:110
+msgctxt "mahjongg theme name"
+msgid "Educational"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:116
+msgid "Game R_ules"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:117
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: ../lib/mahjongg/menu.rb:118
+msgid "_About Mahjongg"
+msgstr ""
+
+#: ../lib/mahjongg/pause_overlay.rb:79
+msgid "Paused"
+msgstr ""
+
+#: ../lib/mahjongg/pause_overlay.rb:91
+msgid "Re_sume Game"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:28
+msgid "Game Rules"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:40
+msgctxt "game rules"
+msgid "Clear the board by matching pairs of identical tiles"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:44
+msgctxt "game rules"
+msgid "Only uncovered tiles with a free long edge can be selected"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:48
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:52
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:53
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:57
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:58
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:62
+msgctxt "game rules"
+msgid "You can use hints to reveal matching tiles"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:63
+msgctxt "game rules"
+msgid "Adds a 30-second time penalty"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:67
+msgctxt "game rules"
+msgid "You can shuffle tiles when no moves are left"
+msgstr ""
+
+#: ../lib/mahjongg/rules_dialog.rb:68
+msgctxt "game rules"
+msgid "Adds a 60-second time penalty"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:72
+msgid "Scores"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:97
+msgid "Game Completed 🎉"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:102
+msgid "Clear Scores…"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:108
+msgid "No Scores"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:109
+msgid "Finish a game to see scores"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:122
+msgid "Rank"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:128
+msgid "Time"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:135
+msgid "Player"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:183
+msgid "Layout: %s"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:417
+msgid "Clear All Scores?"
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:418
+msgid "This will clear every score for every layout."
+msgstr ""
+
+#: ../lib/mahjongg/score_dialog.rb:422
+msgid "Clear All"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:52
+msgctxt "shortcut window"
+msgid "Game"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:58
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:73
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:74
+msgctxt "shortcut window"
+msgid "Restart Game"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:75
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:76
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:77
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:78
+msgctxt "shortcut window"
+msgid "Show Hint"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:79
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:80
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:81
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:82
+msgctxt "shortcut window"
+msgid "Show Game Rules"
+msgstr ""
+
+#: ../lib/mahjongg/shortcuts_dialog.rb:83
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:176
+msgid "Undo"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:184
+msgid "Redo"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:192
+msgid "Main Menu"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:200 ../lib/mahjongg/window.rb:289
+msgid "Pause Game"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:208
+msgid "Show Hint"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:263
+msgid "Moves Left: %2u"
+msgstr ""
+
+#: ../lib/mahjongg/window.rb:276
+msgid "Resume Game"
+msgstr ""

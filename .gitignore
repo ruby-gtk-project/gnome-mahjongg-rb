@@ -7,7 +7,10 @@ data/schemas/gschemas.compiled
 /data/locale/
 /data/org.gnome.Mahjongg.Rb.desktop
 /data/org.gnome.Mahjongg.Rb.metainfo.xml
-/po/gnome-mahjongg-rb.pot
+# gnome-mahjongg-rb.pot IS committed, as the fixture logic_test.rb's "rake
+# pot still extracts every committed msgid/msgctxt pair" check diffs a fresh
+# extraction against — unlike the build artifacts above, it is the thing
+# that check exists to catch regressions in.
 
 # Build Artifacts
 /pkg/
